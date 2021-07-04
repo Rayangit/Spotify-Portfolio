@@ -8,7 +8,7 @@ interface Songs {
   [title: string]: Howl;
 }
 
-const Player: React.FunctionComponent = () => {
+const Player = () => {
 
   const initHowlerPlaylist = () => {
     const allSongs: Songs = {}
@@ -95,16 +95,6 @@ const Player: React.FunctionComponent = () => {
       playlistSong.current[currentSound.current.title].play()
     }
   }
-
-  return (
-    <div>
-      <button onClick={() => playMusic()}>Play</button>
-      <button onClick={() => stopMusic()}>Stop</button>
-      <button onClick={() => pauseMusic()}>Pause</button>
-      <button onClick={() => previousMusic()}>Previous</button>
-      <button onClick={() => nextMusic()}>Next</button>
-    </div>
-  )
 }
 
 export default Player

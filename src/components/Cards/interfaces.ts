@@ -1,3 +1,6 @@
+import { Howl } from 'howler'
+
+
 export type ExperienceProps = {
   company: string
   date: string
@@ -21,4 +24,8 @@ export interface EducationProps {
   bgColor: string
   location: string
   date: string
+}
+
+export interface SongsInterface {
+  [title: string]: Howl;
 }
