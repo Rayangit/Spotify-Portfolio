@@ -14,6 +14,9 @@ import Kookai from './kookai.png'
 import Levi from './levi.png'
 import Linkedin from './linkedin.svg'
 import Mangas from './mangas.png'
+import Next from './next.svg'
+import Play from './play.svg'
+import Previous from './previous.svg'
 import ProfilePicture from './profile_picture.png'
 import Python from './python.svg'
 import React from './react.svg'
@@ -40,6 +43,9 @@ export {
   Levi,
   Linkedin,
   Mangas,
+  Next,
+  Play,
+  Previous,
   ProfilePicture,
   Python,
   React,
