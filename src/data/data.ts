@@ -15,7 +15,9 @@ import {
 import {
   Eminem,
   FreezeRael,
-  Pride
+  Pride,
+  RickAstley,
+  TwoOfUs
 } from 'assets/sounds'
 
 
@@ -83,6 +85,16 @@ export const SongsInformations: PlaylistProps[] = [
     title: 'Pride',
     artist: 'Kendrick Lamar',
     src: Pride
+  },
+  {
+    title: 'Never Gonna Give You Up',
+    artist: 'Rick Astley',
+    src: RickAstley
+  },
+  {
+    title: 'Grover Washington',
+    artist: 'Just The Two of Us',
+    src: TwoOfUs
   },
 ]
 
