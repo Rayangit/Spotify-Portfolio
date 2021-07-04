@@ -15,6 +15,7 @@ import Levi from './levi.png'
 import Linkedin from './linkedin.svg'
 import Mangas from './mangas.png'
 import Next from './next.svg'
+import Pause from './pause.svg'
 import Play from './play.svg'
 import Previous from './previous.svg'
 import ProfilePicture from './profile_picture.png'
@@ -44,6 +45,7 @@ export {
   Linkedin,
   Mangas,
   Next,
+  Pause,
   Play,
   Previous,
   ProfilePicture,
