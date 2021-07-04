@@ -1,4 +1,3 @@
-
 import { 
   Kookai, 
   Cloudeasier,
@@ -13,6 +12,13 @@ import {
   Epitech,
   Ahlia,
 } from 'assets/img'
+import {
+  Eminem,
+  FreezeRael,
+  Pride
+} from 'assets/sounds'
+
+
 
 export interface Techno {
   frameworks: string[]
@@ -62,6 +68,23 @@ export const TechnicalStack: TechnicalStackInterface = {
  
 }
 
+export const SongsInformations: PlaylistProps[] = [
+  {
+    title: 'Cleaning Out My Closet',
+    artist: 'Eminem',
+    src: Eminem
+  },
+  {
+    title: 'Freeze Rael',
+    artist: 'Freeze Corleone',
+    src: FreezeRael
+  },
+  {
+    title: 'Pride',
+    artist: 'Kendrick Lamar',
+    src: Pride
+  },
+]
 
 export const experiences: ModalPropsType[] = [
   {
@@ -224,4 +247,10 @@ export interface ModalPropsType {
   source: string
   location: string
   description: string
+}
+
+export interface PlaylistProps {
+  title: string
+  artist: string
+  src: string
 }
