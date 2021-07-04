@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 import { Box, useMediaQuery, useTheme } from '@material-ui/core'
 import { Howl, Howler } from 'howler'
 
-import { Play, Previous, Next } from 'assets/img'
+import { Pause, Play, Previous, Next } from 'assets/img'
 import { ExperienceProps } from 'components/Cards/interfaces'
 import { SongsInterface } from 'components/Cards/interfaces'
 import Stack from 'components/Containers/Stack/Stack'
@@ -25,9 +25,10 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
 }: ExperienceProps) => {
   const classes = useStyles()
   const theme = useTheme()
-  const [isHovered, setIsHovered] = useState(false)
+  const [ isHovered, setIsHovered ] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [ logoToDisplay, setLogoToDisplay ] = useState(logo)
+
 
   const initHowlerPlaylist = () => {
     const allSongs: SongsInterface = {}
@@ -49,7 +50,8 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
     artist: SongsInformations[0].artist,
     src: SongsInformations[0].src
   })
-
+  const [artist, setArtist] = useState(SongsInformations[0].artist)
+  const [title, setTitle] = useState(SongsInformations[0].title)
 
   const getCurrentSound = () => {
     return SongsInformations.findIndex(x => x.title === currentSound.current.title)
@@ -73,6 +75,8 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
       }
     }
     playlistSong.current[currentSound.current.title].play()
+    setTitle(currentSound.current.title)
+    setArtist(currentSound.current.artist)
   }
 
   const previousMusic = () => {
@@ -94,12 +98,15 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
       }
     }
     playlistSong.current[currentSound.current.title].play()
+    setTitle(currentSound.current.title)
+    setArtist(currentSound.current.artist)
   }
 
 
   const pauseMusic = () => {
     if (playlistSong.current[currentSound.current.title].playing() === true) {
       playlistSong.current[currentSound.current.title].pause()
+      setLogoToDisplay(Play)
     }
   }
 
@@ -109,16 +116,26 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
     }
   }
 
-  const playMusic = () => {
+  const playAndPauseMusic = () => {
     if (playlistSong.current[currentSound.current.title].playing() === false) {
       playlistSong.current[currentSound.current.title].play()
+      setLogoToDisplay(Pause)
+    }
+    else {
+      playlistSong.current[currentSound.current.title].pause()
+      setLogoToDisplay(Play)
     }
   }
 
 
   if (isHovered === true) {
     setTimeout(() => {
-      setLogoToDisplay(Play)
+      if (playlistSong.current[currentSound.current.title].playing() === false) {
+        setLogoToDisplay(Play)
+      }
+      else {
+        setLogoToDisplay(Pause)
+      }
     }, 500)
   }
   else {
@@ -157,6 +174,17 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
             className={classes.texte}
           >Music</Title>
           <Stack
+            horizontalAlign='center'
+            verticalAlign='center'
+            spacing={2}
+            className={classes.songTitle}
+          >
+            <Title
+              variant='medium'
+              textAlign='center'
+            >{artist + ' - ' + title}</Title>
+          </Stack>
+          <Stack
             isRow
             horizontalAlign='center'
             verticalAlign='center'
@@ -174,7 +202,7 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
               horizontalAlign='center'
               variant='medium'
               className={classes.logo}
-              onClick={playMusic}
+              onClick={playAndPauseMusic}
             />
             <Logo
               logo={Next}

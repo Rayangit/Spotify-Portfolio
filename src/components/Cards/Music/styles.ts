@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         transition: '0.8s',
       },
+
+
+
       '&:hover $texte': {
         opacity: 0,
         maxHeight: 0
@@ -19,6 +22,19 @@ const useStyles = makeStyles((theme: Theme) =>
         transition: '1.2s',
         maxHeight: 100
       },
+      '&:hover $songTitle': {
+        opacity: 1,
+        maxHeight: 100
+      },
+      '& $songTitle': {
+        transition: '1.2s',
+        opacity: 0,
+        maxHeight: 0
+      },
+
+
+
+
       '& $logo': {
         transition: '1.2s',
       },
@@ -42,6 +58,11 @@ const useStyles = makeStyles((theme: Theme) =>
     'texte': {
     },
     'logo': {
+    },
+    'songTitle': {
+      // display: 'none',
+      // maxHeight: 0,
+      // visibility: 'hidden'
     },
     'nextAndPrevious': {
       cursor: 'pointer'
