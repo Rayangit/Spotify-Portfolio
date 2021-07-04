@@ -12,14 +12,17 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'assets/img'
+import { Spotify } from 'assets/img'
 import Education from 'components/Cards/Education/Education'
 import Experience from 'components/Cards/Experience/Experience'
+import Music from 'components/Cards/Music/Music'
 import Technology from 'components/Cards/Technology/Technology'
 import Clickable from 'components/Containers/Clickable/Clickable'
 import Modal from 'components/Containers/Modal/Modal'
 import Stack from 'components/Containers/Stack/Stack'
 import Footer from 'components/Layout/Footer/Footer'
 import Header from 'components/Layout/Header/Header'
+import Player from 'components/Player/Player'
 import Title from 'components/Text/Title/Title'
 import { schools, experiences, TechnicalStack, TechnicalStackKeys, ModalPropsType } from 'data/data'
 import { useWindowSize } from 'functions/useWindowSize'
@@ -287,6 +290,21 @@ const Main: React.FunctionComponent = () => {
         mt={5}
         pb={5}
       >
+        <div>
+          {/* <Player /> */}
+          <Slider
+            className={classes.slick}
+            {...sliderProps}
+          >
+            <Music
+              company=''
+              date=''
+              bgColor='#1ED760'
+              job=''
+              logo={Spotify}
+            />
+          </Slider>
+        </div>
         <Footer />
       </Box>
     </Box>
