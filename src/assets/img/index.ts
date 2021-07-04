@@ -19,6 +19,7 @@ import Python from './python.svg'
 import React from './react.svg'
 import Ruby from './ruby.png'
 import SFUni from './sfuni.png'
+import Spotify from './spotify.svg'
 import Typescript from './typescript.svg'
 import VueJS from './vuejs.svg'
 
@@ -44,6 +45,7 @@ export {
   React,
   Ruby,
   SFUni,
+  Spotify,
   Typescript,
-  VueJS,
+  VueJS
 }
