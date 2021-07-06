@@ -60,7 +60,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           ref={modalContainerRef}
           className={classes.modalContainer}
           style={{
-            animationName: isMobile || isExperience ? 'bounceIn' : 'bounceIn'
+            animationName: isMobile || isExperience ? 'bounceIn' : `backIn${popFrom}`
           }}
         >
           <Box
