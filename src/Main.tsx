@@ -210,16 +210,16 @@ const Main: React.FunctionComponent = () => {
       if (leftRef.current && rightRef.current)
       {
         if (isLeftCard)
-          leftRef.current.style.animationName = isMobile ? 'backInDown' : 'backInLeft' 
+          leftRef.current.style.animationName = isMobile ? 'bounceIn' : 'backInLeft' 
         else
-          rightRef.current.style.animationName = isMobile ? 'backInDown' : 'backInRight'
+          rightRef.current.style.animationName = isMobile ? 'bounceIn' : 'backInRight'
       }
     }
     else {
       const cardRef = experienceCardRef[experienceCardIndex.current].current
       
       if (cardRef) 
-        cardRef.style.animationName = 'backInDown'
+        cardRef.style.animationName = 'bounceIn'
       experienceCardIndex.current = -1
     }
     setModalData(undefined)
@@ -228,19 +228,19 @@ const Main: React.FunctionComponent = () => {
   const openExperienceModal = (index: number, data?: ModalPropsType) => () => {
     const cardRef = experienceCardRef[index].current
     if (cardRef) 
-      cardRef.style.animationName = 'backOutDown'
+      cardRef.style.animationName = 'bounceOut'
     experienceCardIndex.current = index
     setModalData(data)
   }
   const openEducationModal = (index: number, data?: ModalPropsType) => {
     if (index === 0) {
       if (leftRef.current)
-        leftRef.current.style.animationName = isMobile ? 'backOutDown' : 'backOutLeft'
+        leftRef.current.style.animationName = isMobile ? 'bounceOut' : 'backOutLeft'
       setIsLeftCard(true)
     }
     else {
       if (rightRef.current)
-        rightRef.current.style.animationName = isMobile ? 'backOutDown' : 'backOutRight'
+        rightRef.current.style.animationName = isMobile ? 'bounceOut' : 'backOutRight'
       setIsLeftCard(false)
     }
     setModalData(data)
