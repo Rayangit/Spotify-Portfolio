@@ -41,7 +41,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   }, [open])
   const closeModal = () => {
     if (modalContainerRef.current) 
-      modalContainerRef.current.style.animationName = isMobile || isExperience ? 'backOutDown' : `backOut${popFrom}`
+      modalContainerRef.current.style.animationName = isMobile || isExperience ? 'bounceOut' : `backOut${popFrom}`
     setTimeout(() => {
       onClose()
       setIsOpen(false)
@@ -60,7 +60,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           ref={modalContainerRef}
           className={classes.modalContainer}
           style={{
-            animationName: isMobile || isExperience ? 'backInDown' : `backIn${popFrom}`
+            animationName: isMobile || isExperience ? 'bounceIn' : 'bounceIn'
           }}
         >
           <Box
