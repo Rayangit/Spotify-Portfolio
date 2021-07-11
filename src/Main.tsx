@@ -12,9 +12,10 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'assets/img'
-import { Spotify } from 'assets/img'
+import { Spotify, Saitama } from 'assets/img'
 import Education from 'components/Cards/Education/Education'
 import Experience from 'components/Cards/Experience/Experience'
+import Manga from 'components/Cards/Manga/Manga'
 import Music from 'components/Cards/Music/Music'
 import Technology from 'components/Cards/Technology/Technology'
 import Clickable from 'components/Containers/Clickable/Clickable'
@@ -365,6 +366,13 @@ const Main: React.FunctionComponent = () => {
               bgColor='#1ED760'
               job=''
               logo={Spotify}
+            />
+            <Manga
+              company=''
+              date=''
+              bgColor='#DB0D16'
+              job=''
+              logo={Saitama}
             />
           </Slider>
         </div>
