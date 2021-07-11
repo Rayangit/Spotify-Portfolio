@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-import { Box, useMediaQuery, useTheme } from '@material-ui/core'
+import { Box, useMediaQuery, useTheme, CardMedia } from '@material-ui/core'
 import { Howl, Howler } from 'howler'
 
+
 import { Saitama, Play, SNK } from 'assets/img'
+import { SNKVideo, KurokoVideo } from 'assets/videos'
 import { ExperienceProps } from 'components/Cards/interfaces'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
@@ -24,37 +26,49 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
   const classes = useStyles()
   const theme = useTheme()
   const [isHovered, setIsHovered] = useState(false)
+  const [displayInformation, setDisplayInformation] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [logoToDisplay, setLogoToDisplay] = useState(Saitama)
-
-  if (isHovered === true) {
-    setTimeout(() => {
-      if (// playlistSong.current[currentSound.current.title].playing() === false
-        isMobile
-      ) {
-        setLogoToDisplay(Play)
+  const video = useRef<HTMLVideoElement>(null)
+  
+  useEffect(() => {
+    if (!isHovered) return setDisplayInformation(false)
+  }, [isHovered])
+  
+  const toggleHover = (value: boolean) => () => {
+    setIsHovered(value)
+    if (video.current)
+      if (value) {
+        video.current.style.opacity = '1'
+        video.current.play()
       } else {
-        setLogoToDisplay(Play)
+        video.current.currentTime = 0
+        video.current.style.opacity = '0'
       }
-    }, 500)
-  } else {
-    setTimeout(() => {
-      setLogoToDisplay(logo)
-    }, 300)
   }
 
   const containerStyle = {
     borderRadius: 8,
     border: `2px solid ${isHovered ? '#FFFFFF' : bgColor}`,
     transition: '.5s',
-    backgroundImage: `url(${SNK})`
+  }
+
+  // const toggleDisplayInformation = () => setDisplayInformation(!displayInformation)
+
+  const videoEnded = () => {
+    if (video.current) {
+      video.current.style.opacity = '0'
+    }
+    setTimeout(() => {
+      setDisplayInformation(true)
+    }, 800)
   }
 
   return (
     <Box
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      // bgcolor={isHovered ? 'rgba(0, 0, 0, 0)' : bgColor}
+      onMouseEnter={toggleHover(true)}
+      onMouseLeave={toggleHover(false)}
+      bgcolor={isHovered ? 'rgba(0, 0, 0, 0)' : bgColor}
       style={containerStyle}
     >
       <Stack
@@ -67,6 +81,23 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
           verticalAlign='center'
           spacing={3}
         >
+          <CardMedia
+            component='video'
+            width='100%'
+            height='100%'
+            image={SNKVideo}
+            autoPlay
+            muted
+            className={classes.video}
+            ref={video}
+            onEnded={videoEnded}
+            style={{
+              opacity: 1
+            }}
+          />
+          <Box
+            className={classes.information}
+          />
           <Title
             variant='huge'
             className={classes.texte}
