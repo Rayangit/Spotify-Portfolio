@@ -263,7 +263,7 @@ export const Mangas = [
     src: KurokoVideo,
     icon: Kuruko,
     thumb: KurukoThumb,
-    title: 'Kuruko\'s Basket',
+    title: 'Kuroko\'s Basket',
   }
 ]
 
