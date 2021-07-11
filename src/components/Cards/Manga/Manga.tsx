@@ -18,7 +18,6 @@ const Manga: React.FunctionComponent = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const mangaIndex = useRef<number>(0)
   const video = useRef<HTMLVideoElement>(null)
-  
   useEffect(() => {
     if (!isHovered) {
       if (video.current) {
@@ -26,9 +25,7 @@ const Manga: React.FunctionComponent = () => {
         video.current.load()
         video.current.pause()
       }
-      if (Mangas.length - 1 === mangaIndex.current) mangaIndex.current = 0
-      else mangaIndex.current++
-      return setDisplayInformation(false)
+      setDisplayInformation(false)
     } else {
       setTimeout(() => {
         video.current?.play()
@@ -44,6 +41,10 @@ const Manga: React.FunctionComponent = () => {
     if (video.current)
       if (value) video.current.style.opacity = '1'
       else video.current.style.opacity = '0'
+    if (!value) {
+      if (Mangas.length - 1 === mangaIndex.current) mangaIndex.current = 0
+      else mangaIndex.current++
+    }
   }
 
   const containerStyle = {

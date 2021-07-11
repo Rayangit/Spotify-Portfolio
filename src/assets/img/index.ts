@@ -8,9 +8,12 @@ import Contact from './contact.svg'
 import Cross from './cross.svg'
 import Enedis from './enedis.png'
 import Epitech from './epitech.png'
+import ErenThumb from './erenThumb.png'
 import Github from './github.svg'
 import Integration from './integration.png'
 import Kookai from './kookai.png'
+import Kuruko from './kurukoImg.png'
+import KurukoThumb from './kurukoThumb.png'
 import Levi from './levi.png'
 import Linkedin from './linkedin.svg'
 import Mangas from './mangas.png'
@@ -40,9 +43,12 @@ export {
   Cross,
   Enedis,
   Epitech,
+  ErenThumb,
   Github,
   Integration,
   Kookai,
+  Kuruko,
+  KurukoThumb,
   Levi,
   Linkedin,
   Mangas,

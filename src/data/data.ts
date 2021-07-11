@@ -11,6 +11,9 @@ import {
   VueJS,
   Epitech,
   Ahlia,
+  Kuruko,
+  KurukoThumb,
+  ErenThumb,
 } from 'assets/img'
 import { Saitama, Play, SNK, Levi } from 'assets/img'
 import {
@@ -253,13 +256,13 @@ export const Mangas = [
   {
     src: SNKVideo,
     icon: Levi,
-    thumb: Saitama,
+    thumb: ErenThumb,
     title: 'Attack on Titans',
   },
   {
     src: KurokoVideo,
-    icon: Levi,
-    thumb: Saitama,
+    icon: Kuruko,
+    thumb: KurukoThumb,
     title: 'Kuruko\'s Basket',
   }
 ]
