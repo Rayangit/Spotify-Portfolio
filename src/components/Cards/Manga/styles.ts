@@ -3,8 +3,24 @@ import type { Theme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    spinner: {
+      '&:hover': {
+        transform: 'rotate(360deg)',
+        transition: '.8s',
+      },
+      transition: '.8s',
+    },
     information: {
 
+    },
+    logoMute: {
+      position: 'absolute',
+      right: 8,
+      bottom: 18,
+      zIndex: 1,
+      '& img': {
+        height: 30
+      }
     },
     informationTitle: {
       position: 'absolute',

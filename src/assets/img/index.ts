@@ -28,10 +28,13 @@ import Previous from './previous.svg'
 import ProfilePicture from './profile_picture.png'
 import Python from './python.svg'
 import React from './react.svg'
+import Replay from './replay.svg'
 import Ruby from './ruby.png'
 import Saitama from './saitama.svg'
 import SFUni from './sfuni.png'
 import SNK from './snk.gif'
+import SoundOff from './soundOff.svg'
+import SoundOn from './soundOn.svg'
 import Spotify from './spotify.svg'
 import Typescript from './typescript.svg'
 import VueJS from './vuejs.svg'
@@ -66,12 +69,15 @@ export {
   Previous,
   ProfilePicture,
   Python,
+  Replay,
   React,
   Ruby,
   Saitama,
   SFUni,
   SNK,
   Spotify,
+  SoundOn,
+  SoundOff,
   Typescript,
   VueJS
 }
