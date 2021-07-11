@@ -12,6 +12,7 @@ import {
   Epitech,
   Ahlia,
 } from 'assets/img'
+import { Saitama, Play, SNK, Levi } from 'assets/img'
 import {
   Eminem,
   FreezeRael,
@@ -19,8 +20,7 @@ import {
   RickAstley,
   TwoOfUs
 } from 'assets/sounds'
-
-
+import { SNKVideo, KurokoVideo } from 'assets/videos'
 
 export interface Techno {
   frameworks: string[]
@@ -248,6 +248,23 @@ export const schools = [
     bgColor: '#930B23'
   }
 ]
+
+export const Mangas = [
+  {
+    src: SNKVideo,
+    icon: Levi,
+    thumb: Saitama,
+    title: 'Attack on Titans',
+  },
+  {
+    src: KurokoVideo,
+    icon: Levi,
+    thumb: Saitama,
+    title: 'Kuruko\'s Basket',
+  }
+]
+
+
 
 export interface ModalPropsType {
   title: string

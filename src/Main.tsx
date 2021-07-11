@@ -367,13 +367,7 @@ const Main: React.FunctionComponent = () => {
               job=''
               logo={Spotify}
             />
-            <Manga
-              company=''
-              date=''
-              bgColor='#DB0D16'
-              job=''
-              logo={Saitama}
-            />
+            <Manga />
           </Slider>
         </div>
         <Footer />

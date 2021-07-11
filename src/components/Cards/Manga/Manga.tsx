@@ -1,34 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import { Box, useMediaQuery, useTheme, CardMedia } from '@material-ui/core'
-import { Howl, Howler } from 'howler'
 
-
-import { Saitama, Play, SNK, Levi } from 'assets/img'
-import { SNKVideo, KurokoVideo } from 'assets/videos'
-import { ExperienceProps } from 'components/Cards/interfaces'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
-import Player from 'components/Player/Player'
-import Subtitle from 'components/Text/Subtitle/Subtitle'
 import Title from 'components/Text/Title/Title'
+import { Mangas } from 'data/data'
 
 import useStyles from './styles'
 
-const Manga: React.FunctionComponent<ExperienceProps> = ({
-  company,
-  date,
-  bgColor,
-  stack,
-  job,
-  logo,
-}: ExperienceProps) => {
+
+const Manga: React.FunctionComponent = () => {
   const classes = useStyles()
   const theme = useTheme()
   const [isHovered, setIsHovered] = useState(false)
   const [displayInformation, setDisplayInformation] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-  const [logoToDisplay, setLogoToDisplay] = useState(Saitama)
+  const mangaIndex = useRef<number>(0)
   const video = useRef<HTMLVideoElement>(null)
   
   useEffect(() => {
@@ -38,18 +26,19 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
         video.current.load()
         video.current.pause()
       }
+      if (Mangas.length - 1 === mangaIndex.current) mangaIndex.current = 0
+      else mangaIndex.current++
       return setDisplayInformation(false)
     } else {
       setTimeout(() => {
         video.current?.play()
         if (video.current) {
-          video.current.volume = 0.005
+          video.current.volume = 0.1
           video.current.muted = false
         }
       }, 800)
     } 
   }, [isHovered])
-
   const toggleHover = (value: boolean) => () => {
     setIsHovered(value)
     if (video.current)
@@ -59,7 +48,7 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
 
   const containerStyle = {
     borderRadius: 8,
-    border: `2px solid ${isHovered ? '#FFFFFF' : bgColor}`,
+    border: `2px solid ${isHovered ? '#FFFFFF' : '#DB0D16'}`,
     transition: '.5s',
   }
 
@@ -69,6 +58,7 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
     if (video.current) {
       video.current.style.opacity = '0'
     }
+
     setTimeout(() => {
       setDisplayInformation(true)
     }, 800)
@@ -78,7 +68,7 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
     <Box
       onMouseEnter={toggleHover(true)}
       onMouseLeave={toggleHover(false)}
-      bgcolor={isHovered && !displayInformation ? 'rgba(0, 0, 0, 0)' : bgColor}
+      bgcolor={isHovered && !displayInformation ? 'rgba(0, 0, 0, 0)' : '#DB0D16'}
       style={containerStyle}
     >
       <Stack
@@ -95,7 +85,7 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
             component='video'
             width='100%'
             height='100%'
-            image={SNKVideo}
+            image={Mangas[mangaIndex.current].src}
             className={classes.video}
             ref={video}
             onEnded={videoEnded}
@@ -111,9 +101,9 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
                 variant='medium'
                 textAlign='center'
                 className={classes.informationTitle}
-              >Shingeki no kyojin</Title>
+              >{Mangas[mangaIndex.current].title}</Title>
               <Logo
-                logo={Levi}
+                logo={Mangas[mangaIndex.current].icon}
                 horizontalAlign='center'
                 variant='tiny'
                 className={classes.logoInformation}
@@ -133,28 +123,12 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
             verticalAlign='center'
           >
             <Logo
-              logo={Saitama}
+              logo={Mangas[mangaIndex.current].thumb}
               horizontalAlign='center'
               variant='medium'
               className={classes.saitama}
             />
           </Stack>
-          <Box
-            position='absolute'
-            style={{ bottom: 32 }}
-          >
-            {!isMobile && (
-              <Subtitle
-                animation='slideIn'
-                animationExit='slideOut'
-                animationDelay='0.3s'
-                isHovering={isHovered}
-                variant='tiny'
-              >
-                {stack}
-              </Subtitle>
-            )}
-          </Box>
         </Stack>
       </Stack>
     </Box>
