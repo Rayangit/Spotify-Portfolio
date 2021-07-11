@@ -6,6 +6,21 @@ const useStyles = makeStyles((theme: Theme) =>
     information: {
 
     },
+    informationTitle: {
+      position: 'absolute',
+      top: 24,
+      left: 0,
+      right: 0,
+    },
+    logoInformation: {
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      left: 0,
+      '& img': {
+        height: 125
+      }
+    },
     experienceCard: {
       width: 280,
       height: 160,

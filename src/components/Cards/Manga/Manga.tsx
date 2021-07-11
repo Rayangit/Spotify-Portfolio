@@ -4,7 +4,7 @@ import { Box, useMediaQuery, useTheme, CardMedia } from '@material-ui/core'
 import { Howl, Howler } from 'howler'
 
 
-import { Saitama, Play, SNK } from 'assets/img'
+import { Saitama, Play, SNK, Levi } from 'assets/img'
 import { SNKVideo, KurokoVideo } from 'assets/videos'
 import { ExperienceProps } from 'components/Cards/interfaces'
 import Stack from 'components/Containers/Stack/Stack'
@@ -32,19 +32,29 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
   const video = useRef<HTMLVideoElement>(null)
   
   useEffect(() => {
-    if (!isHovered) return setDisplayInformation(false)
+    if (!isHovered) {
+      if (video.current) {
+        video.current.muted = true
+        video.current.load()
+        video.current.pause()
+      }
+      return setDisplayInformation(false)
+    } else {
+      setTimeout(() => {
+        video.current?.play()
+        if (video.current) {
+          video.current.volume = 0.005
+          video.current.muted = false
+        }
+      }, 800)
+    } 
   }, [isHovered])
-  
+
   const toggleHover = (value: boolean) => () => {
     setIsHovered(value)
     if (video.current)
-      if (value) {
-        video.current.style.opacity = '1'
-        video.current.play()
-      } else {
-        video.current.currentTime = 0
-        video.current.style.opacity = '0'
-      }
+      if (value) video.current.style.opacity = '1'
+      else video.current.style.opacity = '0'
   }
 
   const containerStyle = {
@@ -68,7 +78,7 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
     <Box
       onMouseEnter={toggleHover(true)}
       onMouseLeave={toggleHover(false)}
-      bgcolor={isHovered ? 'rgba(0, 0, 0, 0)' : bgColor}
+      bgcolor={isHovered && !displayInformation ? 'rgba(0, 0, 0, 0)' : bgColor}
       style={containerStyle}
     >
       <Stack
@@ -86,8 +96,6 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
             width='100%'
             height='100%'
             image={SNKVideo}
-            autoPlay
-            muted
             className={classes.video}
             ref={video}
             onEnded={videoEnded}
@@ -95,15 +103,30 @@ const Manga: React.FunctionComponent<ExperienceProps> = ({
               opacity: 1
             }}
           />
-          <Box
-            className={classes.information}
-          />
+          { displayInformation && (
+            <Box
+              className={classes.information}
+            >
+              <Title
+                variant='medium'
+                textAlign='center'
+                className={classes.informationTitle}
+              >Shingeki no kyojin</Title>
+              <Logo
+                logo={Levi}
+                horizontalAlign='center'
+                variant='tiny'
+                className={classes.logoInformation}
+              />
+            </Box>
+          )}
           <Title
             variant='huge'
             className={classes.texte}
           >
             Manga
           </Title>
+      
           <Stack
             isRow
             horizontalAlign='center'

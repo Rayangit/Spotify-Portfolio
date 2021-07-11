@@ -35,7 +35,7 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
     for (const song of SongsInformations) {
       allSongs[song.title] = new Howl({
         src: song.src,
-        volume: 0.2,
+        volume: 0.1,
         onend: () => nextMusic()
       })
     }
