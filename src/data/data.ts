@@ -14,6 +14,10 @@ import {
   Kuruko,
   KurukoThumb,
   ErenThumb,
+  Goku,
+  GokuThumb,
+  Gon,
+  GonThumb
 } from 'assets/img'
 import { Saitama, Play, SNK, Levi } from 'assets/img'
 import {
@@ -23,7 +27,7 @@ import {
   RickAstley,
   TwoOfUs
 } from 'assets/sounds'
-import { SNKVideo, KurokoVideo } from 'assets/videos'
+import { SNKVideo, KurokoVideo, DBZVideo, HXHVideo } from 'assets/videos'
 
 export interface Techno {
   frameworks: string[]
@@ -264,6 +268,18 @@ export const Mangas = [
     icon: Kuruko,
     thumb: KurukoThumb,
     title: 'Kuroko\'s Basket',
+  },
+  {
+    src: DBZVideo,
+    icon: Goku,
+    thumb: GokuThumb,
+    title: 'Dragon Ball Z',
+  },
+  {
+    src: HXHVideo,
+    icon: GonThumb,
+    thumb: Gon,
+    title: 'Hunter x Hunter',
   }
 ]
 
