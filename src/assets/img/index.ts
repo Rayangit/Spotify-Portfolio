@@ -10,6 +10,10 @@ import Enedis from './enedis.png'
 import Epitech from './epitech.png'
 import ErenThumb from './erenThumb.png'
 import Github from './github.svg'
+import Goku from './gokuImg.png'
+import GokuThumb from './gokuThumb.png'
+import Gon from './gonImg.png'
+import GonThumb from './gonThumb.png'
 import Integration from './integration.png'
 import Kookai from './kookai.png'
 import Kuruko from './kurukoImg.png'
@@ -45,6 +49,10 @@ export {
   Epitech,
   ErenThumb,
   Github,
+  Goku,
+  GokuThumb,
+  Gon,
+  GonThumb,
   Integration,
   Kookai,
   Kuruko,
