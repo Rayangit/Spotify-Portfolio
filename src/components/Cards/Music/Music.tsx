@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { Box, useMediaQuery, useTheme } from '@material-ui/core'
 import { Howl, Howler } from 'howler'
 
+import { Spotify } from 'assets/img'
 import { Pause, Play, Previous, Next } from 'assets/img'
 import { ExperienceProps } from 'components/Cards/interfaces'
 import { SongsInterface } from 'components/Cards/interfaces'
@@ -27,7 +28,7 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
   const theme = useTheme()
   const [ isHovered, setIsHovered ] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-  const [ logoToDisplay, setLogoToDisplay ] = useState(logo)
+  const [ logoToDisplay, setLogoToDisplay ] = useState(Spotify)
 
 
   const initHowlerPlaylist = () => {
@@ -140,7 +141,7 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
   }
   else {
     setTimeout(() => {
-      setLogoToDisplay(logo)
+      setLogoToDisplay(Spotify)
       stopMusic()
     }, 300)
   }
@@ -212,20 +213,6 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
               onClick={nextMusic}
             />
           </Stack>
-          <Box
-            position='absolute'
-            style={{ bottom: 32 }}
-          >
-            {!isMobile && (
-              <Subtitle              
-                animation='slideIn'
-                animationExit='slideOut'
-                animationDelay='0.3s'
-                isHovering={isHovered}
-                variant='tiny'
-              >{stack}</Subtitle>
-            )}
-          </Box>
         </Stack>
       </Stack>
     </Box>
