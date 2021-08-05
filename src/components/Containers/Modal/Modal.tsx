@@ -40,12 +40,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     }
   }, [open])
   const closeModal = () => {
-    if (modalContainerRef.current) 
-      modalContainerRef.current.style.animationName = isMobile || isExperience ? 'bounceOut' : `backOut${popFrom}`
-    setTimeout(() => {
-      onClose()
-      setIsOpen(false)
-    }, 500)
+    onClose()
+    setIsOpen(false)
   }
   return (
     <div>
@@ -59,9 +55,6 @@ const Modal: React.FunctionComponent<ModalProps> = ({
         <div
           className={classes.modalContainer}
           ref={modalContainerRef}
-          style={{
-            animationName: isMobile || isExperience ? 'bounceIn' : `backIn${popFrom}`
-          }}
         >
           <Box
             className={classes.overlay}

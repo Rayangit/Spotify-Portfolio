@@ -69,7 +69,7 @@ const Manga: React.FunctionComponent = () => {
     onClick: displayInformation ? replayVideo : toggleMute
   }
   const containerStyle = {
-    borderRadius: 8,
+    borderRadius: 16,
     border: `2px solid ${isHovered ? '#FFFFFF' : '#DB0D16'}`,
     transition: '.5s',
   }
@@ -131,19 +131,12 @@ const Manga: React.FunctionComponent = () => {
         >
             Manga
         </Title>
-      
-        <Stack
+        <Logo
+          className={classes.saitama}
           horizontalAlign='center'
-          isRow
-          verticalAlign='center'
-        >
-          <Logo
-            className={classes.saitama}
-            horizontalAlign='center'
-            logo={Mangas[mangaIndex.current].thumb}
-            variant='medium'
-          />
-        </Stack>
+          logo={Mangas[mangaIndex.current].thumb}
+          variant='medium'
+        />
         { isHovered && 
           <Logo
             className={`${classes.logoMute} ${displayInformation && classes.spinner}`}

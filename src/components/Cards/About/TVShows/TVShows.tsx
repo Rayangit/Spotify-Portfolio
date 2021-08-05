@@ -3,8 +3,10 @@ import React, { useRef } from 'react'
 import { Box } from '@material-ui/core'
 import Slider from 'react-slick'
 
+import { TVShowLogo } from 'assets/img'
+import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
-import Subtitle from 'components/Text/Subtitle/Subtitle'
+import Title from 'components/Text/Title/Title'
 import { TVShowInterface, TVShowsData } from 'data/data'
 
 import useStyles from './styles'
@@ -31,7 +33,7 @@ const TVShows: React.FunctionComponent = () => {
   const waitForHoverAndPlay = () => {
     setTimeout(() => {
       playSlider()
-    }, 2400)
+    }, 1500)
   }
 
   const stopSlider = () => {
@@ -66,9 +68,18 @@ const TVShows: React.FunctionComponent = () => {
       onMouseEnter={waitForHoverAndPlay}
       onMouseLeave={stopSlider}
     >
-      <Box className={classes.neutralState}>
-        <Subtitle variant='big'>TV Shows</Subtitle>
-      </Box>
+      <Stack 
+        className={classes.neutralState}
+        horizontalAlign='center'
+        spacing={4}
+        verticalAlign='center'
+      >
+        <Title variant='huge'>TV Shows</Title>
+        <Logo
+          logo={TVShowLogo}
+          variant='medium'
+        />
+      </Stack>
       <Slider
         {...sliderProps}
         className={classes.slickAbout}

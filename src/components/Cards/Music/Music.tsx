@@ -148,7 +148,7 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
 
   const animation = isHovered ? 'biggerCard' : 'smallerCard'
   const containerStyle = {
-    borderRadius: 8,
+    borderRadius: 16,
     border: `2px solid ${isHovered ? '#FFFFFF' : bgColor}`,
     transition: '.5s',
   }

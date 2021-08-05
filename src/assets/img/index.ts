@@ -41,6 +41,7 @@ import SNK from './snk.gif'
 import SoundOff from './soundOff.svg'
 import SoundOn from './soundOn.svg'
 import Spotify from './spotify.svg'
+import TVShowLogo from './tvShowLogo.svg'
 import TVShows from './tvshows'
 import Typescript from './typescript.svg'
 import VueJS from './vuejs.svg'
@@ -90,6 +91,7 @@ export {
   SoundOn,
   SoundOff,
   TVShows,
+  TVShowLogo,
   Typescript,
   VueJS
 }

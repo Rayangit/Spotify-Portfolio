@@ -1,10 +1,10 @@
 import React from 'react'
 
+import Main from './Main'
 import './App.css'
-import Body from './components/Layout/Body/Body'
 
 const App: React.FunctionComponent = () => {
-  return <Body />
+  return <Main />
 }
 
 export default App
