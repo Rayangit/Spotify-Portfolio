@@ -18,6 +18,7 @@ import Experience from 'components/Cards/Experience/Experience'
 import Manga from 'components/Cards/Manga/Manga'
 import Music from 'components/Cards/Music/Music'
 import Technology from 'components/Cards/Technology/Technology'
+import VideoGame from 'components/Cards/VideoGame/VideoGame'
 import Clickable from 'components/Containers/Clickable/Clickable'
 import Modal from 'components/Containers/Modal/Modal'
 import Stack from 'components/Containers/Stack/Stack'
@@ -368,6 +369,7 @@ const Main: React.FunctionComponent = () => {
               logo={Spotify}
             />
             <Manga />
+            <VideoGame />
           </Slider>
         </div>
         <Footer />

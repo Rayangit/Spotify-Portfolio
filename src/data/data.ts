@@ -17,7 +17,9 @@ import {
   Goku,
   GokuThumb,
   Gon,
-  GonThumb
+  GonThumb,
+  LeagueOfLegend,
+  LifeIsStrange
 } from 'assets/img'
 import { Saitama, Play, SNK, Levi } from 'assets/img'
 import {
@@ -283,7 +285,34 @@ export const Mangas = [
   }
 ]
 
+export const VideoGames: VideoGameType[] = [
+  {
+    title: 'League of legends',
+    img: LeagueOfLegend,
+    type: 'Favorite Game'
+  },
+  {
+    title: 'Life Is Strange',
+    img: LifeIsStrange,
+    type: 'Best Story'
+  },
+  {
+    title: 'Life Is Strange',
+    img: LifeIsStrange,
+    type: 'Best Story'
+  },
+  {
+    title: 'Life Is Strange',
+    img: LifeIsStrange,
+    type: 'Best Story'
+  },
+]
 
+export interface VideoGameType {
+  title: string
+  img: string
+  type: string
+}
 
 export interface ModalPropsType {
   title: string
