@@ -32,33 +32,33 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <Stack
+      horizontalAlign={isMobile ? 'center' : 'space-between'}
       isRow
       verticalAlign='center'
-      horizontalAlign={isMobile ? 'center' : 'space-between'}
     >
       <Stack
-        isRow={!isMobile}
-        verticalAlign='center'
         horizontalAlign='center'
+        isRow={!isMobile}
         spacing={2}
+        verticalAlign='center'
       >
         <Avatar
           isBordered={false}
-          variant='huge'
           source={ProfilePicture}
+          variant='huge'
         />
         <Stack spacing={2}>
           <Title
-            variant='big'
             textAlign={responsiveHorizontal}
+            variant='big'
           >Souhib Keddache</Title>
           <Subtitle
-            variant='big'
             textAlign={responsiveHorizontal}
+            variant='big'
           >Front End Engineer @ Café</Subtitle>
           <Subtitle
-            variant='big'
             textAlign={responsiveHorizontal}
+            variant='big'
           >
           #OpenToWork - End of studies internship
           </Subtitle>
@@ -67,8 +67,8 @@ const Header: React.FunctionComponent = () => {
       { !isMobile && (
         <Stack
           isRow
-          verticalAlign='center'
           spacing={2}
+          verticalAlign='center'
         >
           <Clickable onClick={goToLinkedin}>
             <Avatar

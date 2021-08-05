@@ -155,62 +155,62 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
 
   return (
     <Box
+      bgcolor={bgColor}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      bgcolor={bgColor}
       style={containerStyle}
     >
       <Stack
-        spacing={1}
         className={classes.experienceCard}
+        spacing={1}
         verticalAlign='center'
       >
         <Stack
           horizontalAlign='center'
-          verticalAlign='center'
           spacing={2}
+          verticalAlign='center'
         >
           <Title
-            variant='huge'
             className={classes.texte}
+            variant='huge'
           >Music</Title>
           <Stack
-            horizontalAlign='center'
-            verticalAlign='center'
-            spacing={2}
             className={classes.songTitle}
+            horizontalAlign='center'
+            spacing={2}
+            verticalAlign='center'
           >
             <Title
-              variant='medium'
               textAlign='center'
+              variant='medium'
             >{artist + ' - ' + title}</Title>
           </Stack>
           <Stack
-            isRow
             horizontalAlign='center'
-            verticalAlign='center'
+            isRow
             spacing={4}
+            verticalAlign='center'
           >
             <Logo
+              className={classes.nextAndPrevious}
+              horizontalAlign='center'
               logo={Previous}
-              horizontalAlign='center'
-              variant='tiny'
-              className={classes.nextAndPrevious}
               onClick={previousMusic}
-            />
-            <Logo
-              logo={logoToDisplay}
-              horizontalAlign='center'
-              variant='medium'
-              className={classes.logo}
-              onClick={playAndPauseMusic}
-            />
-            <Logo
-              logo={Next}
-              horizontalAlign='center'
               variant='tiny'
+            />
+            <Logo
+              className={classes.logo}
+              horizontalAlign='center'
+              logo={logoToDisplay}
+              onClick={playAndPauseMusic}
+              variant='medium'
+            />
+            <Logo
               className={classes.nextAndPrevious}
+              horizontalAlign='center'
+              logo={Next}
               onClick={nextMusic}
+              variant='tiny'
             />
           </Stack>
         </Stack>

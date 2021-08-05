@@ -33,9 +33,9 @@ const Footer: React.FunctionComponent = () => {
         spacing={2}
       >
         <Stack
+          horizontalAlign='center'
           isRow
           verticalAlign='center'
-          horizontalAlign='center'
         >
           <Clickable onClick={goToLinkedin}>
             <Avatar

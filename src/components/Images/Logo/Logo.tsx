@@ -14,7 +14,7 @@ const Logo: React.FunctionComponent<LogoProps> = ({ className, horizontalAlign =
       onClick={onClick}
     >
       <img
-        className={classes[variant]}
+        className={variant && classes[variant]}
         src={logo}
         style={{ ...horizontal }}
 

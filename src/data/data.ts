@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+
 import { 
   Kookai, 
   Cloudeasier,
@@ -10,6 +13,7 @@ import {
   Typescript,
   VueJS,
   Epitech,
+  TVShows as TVShowsImages,
   Ahlia,
   Kuruko,
   KurukoThumb,
@@ -41,14 +45,6 @@ export interface TechnicalStackInterface {
   [key: string]: Techno
 }
 
-export enum TechnicalStackKeys {
-  TYPESCRIPT = 1,
-  PYTHON = 2,
-  INTEGRATION = 3,
-  CLOUD = 4,
-  RUBY = 5,
-}
-
 export const TechnicalStack: TechnicalStackInterface = {
   typescript: {
     frameworks: ['ReactJS', 'React Native', 'VueJS'],
@@ -76,9 +72,15 @@ export const TechnicalStack: TechnicalStackInterface = {
     bgColor: '#901212',
     icon: Ruby,
   },
- 
 }
 
+export enum TechnicalStackKeys {
+  TYPESCRIPT = 1,
+  PYTHON = 2,
+  INTEGRATION = 3,
+  CLOUD = 4,
+  RUBY = 5,
+}
 export const SongsInformations: PlaylistProps[] = [
   {
     title: 'Cleaning Out My Closet',
@@ -326,6 +328,37 @@ export interface ModalPropsType {
   description: string
 }
 
+export const TVShowsData = [
+  {
+    name: 'Mr.Robot',
+    image: TVShowsImages.TheLastKingdom
+  },
+  {
+    name: 'The Last Kingdom',
+    image: TVShowsImages.TheLastKingdom
+  },
+  {
+    name: 'La casa de papel',
+    image: TVShowsImages.LaCasaDePapel
+  },
+  {
+    name: 'Mr.Robot',
+    image: TVShowsImages.TheLastKingdom
+  },
+  {
+    name: 'The Last Kingdom',
+    image: TVShowsImages.LaCasaDePapel
+  },
+  {
+    name: 'La casa de papel',
+    image: TVShowsImages.LaCasaDePapel
+  },
+]
+
+export interface TVShowInterface {
+  name: string
+  image: string
+}
 export interface PlaylistProps {
   title: string
   artist: string

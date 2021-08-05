@@ -85,71 +85,71 @@ const Manga: React.FunctionComponent = () => {
 
   return (
     <Box
+      bgcolor={isHovered && !displayInformation ? 'rgba(0, 0, 0, 0)' : '#DB0D16'}
       onMouseEnter={toggleHover(true)}
       onMouseLeave={toggleHover(false)}
-      bgcolor={isHovered && !displayInformation ? 'rgba(0, 0, 0, 0)' : '#DB0D16'}
       style={containerStyle}
     >
       <Stack
-        spacing={4}
         className={classes.experienceCard}
         horizontalAlign='center'
+        spacing={4}
         verticalAlign='center'
       >
         <CardMedia
+          className={classes.video}
           component='video'
-          width='100%'
           height='100%'
           image={Mangas[mangaIndex.current].src}
-          className={classes.video}
-          ref={video}
           onEnded={videoEnded}
+          ref={video}
           style={{
             opacity: 1
           }}
+          width='100%'
         />
         { displayInformation && (
           <Box
             className={classes.information}
           >
             <Title
-              variant='medium'
-              textAlign='center'
               className={classes.informationTitle}
+              textAlign='center'
+              variant='medium'
             >{Mangas[mangaIndex.current].title}</Title>
             <Logo
-              logo={Mangas[mangaIndex.current].icon}
-              horizontalAlign='center'
-              variant='tiny'
               className={classes.logoInformation}
+              horizontalAlign='center'
+              logo={Mangas[mangaIndex.current].icon}
+              variant='tiny'
             />
           </Box>
         )}
         <Title
-          variant='huge'
           className={classes.texte}
+          variant='huge'
         >
             Manga
         </Title>
       
         <Stack
-          isRow
           horizontalAlign='center'
+          isRow
           verticalAlign='center'
         >
           <Logo
-            logo={Mangas[mangaIndex.current].thumb}
-            horizontalAlign='center'
-            variant='medium'
             className={classes.saitama}
+            horizontalAlign='center'
+            logo={Mangas[mangaIndex.current].thumb}
+            variant='medium'
           />
         </Stack>
         { isHovered && 
           <Logo
             className={`${classes.logoMute} ${displayInformation && classes.spinner}`}
             logo={bottomButton.logo}
-            variant='tiny'
             onClick={bottomButton.onClick}
+            variant='tiny'
           />}
       </Stack>
     </Box>

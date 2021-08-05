@@ -30,9 +30,7 @@ module.exports = {
     'no-unused-vars': 1,
     'no-console': 1,
     'no-unreachable': 1,
-    'react/jsx-closing-bracket-location': ['warn', 'line-aligned'],
     'react/jsx-curly-newline': 1,
-    'react/jsx-first-prop-new-line': 1,
     'react/self-closing-comp': 1,
     'react/jsx-wrap-multilines': 1,
     'react/jsx-curly-brace-presence': [
@@ -56,7 +54,11 @@ module.exports = {
     indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     'jsx-quotes': ['error', 'prefer-single'],
-    'react/jsx-max-props-per-line': 2,
+    'react/jsx-max-props-per-line': ['warn', {maximum: 1, when: 'always'}],
+    'react/jsx-first-prop-new-line': ['warn', 'multiline-multiprop'],
+    'react/jsx-indent-props': ['warn', 2],
+    'react/jsx-sort-props': ['warn', {'ignoreCase': true}],
+    'react/jsx-closing-bracket-location': ['warn'],
     'import/order': [
       'warn',
       {

@@ -17,8 +17,8 @@ const Avatar: React.FunctionComponent<AvatarProps> =
     ].join(' ')}
     >
       <img
-        src={source}
         className={classes[variant]}
+        src={source}
       />
     </Box>
   )
