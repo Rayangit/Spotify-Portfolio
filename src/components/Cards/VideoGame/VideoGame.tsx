@@ -10,7 +10,7 @@ import Clickable from 'components/Containers/Clickable/Clickable'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
 import Title from 'components/Text/Title/Title'
-import { VideoGames } from 'data/data'
+import { getImgUrl, VideoGames } from 'data/data'
 
 import useStyles from './styles'
 
@@ -122,7 +122,7 @@ const VideoGame: React.FunctionComponent = () => {
             spacing={4}
           > */}
             <Logo
-              logo={Controller}
+              logo={getImgUrl(Controller)}
               horizontalAlign='center'
               variant='medium'
               className={classes.logo}
@@ -165,7 +165,7 @@ const VideoGame: React.FunctionComponent = () => {
           }}
         >
           <Logo
-            logo={LeftChevron}
+            logo={getImgUrl(LeftChevron)}
             horizontalAlign='center'
             variant='small'
             className={classes.button}
@@ -177,7 +177,7 @@ const VideoGame: React.FunctionComponent = () => {
             className={classes.songTitle}
           >{VideoGames[currentBackground].type}</Title>
           <Logo
-            logo={RightChevron}
+            logo={getImgUrl(RightChevron)}
             horizontalAlign='center'
             variant='small'
             className={classes.button}

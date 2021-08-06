@@ -7,7 +7,7 @@ import { TVShowLogo } from 'assets/img'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
 import Title from 'components/Text/Title/Title'
-import { TVShowInterface, TVShowsData } from 'data/data'
+import { getImgUrl, TVShowInterface, TVShowsData } from 'data/data'
 
 import useStyles from './styles'
 
@@ -76,7 +76,7 @@ const TVShows: React.FunctionComponent = () => {
       >
         <Title variant='huge'>TV Shows</Title>
         <Logo
-          logo={TVShowLogo}
+          logo={getImgUrl(TVShowLogo)}
           variant='medium'
         />
       </Stack>

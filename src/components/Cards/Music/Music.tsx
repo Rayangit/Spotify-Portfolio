@@ -12,7 +12,7 @@ import Logo from 'components/Images/Logo/Logo'
 import Player from 'components/Player/Player'
 import Subtitle from 'components/Text/Subtitle/Subtitle'
 import Title from 'components/Text/Title/Title'
-import { SongsInformations, PlaylistProps } from 'data/data'
+import { SongsInformations, PlaylistProps, getImgUrl } from 'data/data'
 
 import useStyles from './styles'
 
@@ -194,21 +194,21 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
             <Logo
               className={classes.nextAndPrevious}
               horizontalAlign='center'
-              logo={Previous}
+              logo={getImgUrl(Previous)}
               onClick={previousMusic}
               variant='tiny'
             />
             <Logo
               className={classes.logo}
               horizontalAlign='center'
-              logo={logoToDisplay}
+              logo={getImgUrl(logoToDisplay)}
               onClick={playAndPauseMusic}
               variant='medium'
             />
             <Logo
               className={classes.nextAndPrevious}
               horizontalAlign='center'
-              logo={Next}
+              logo={getImgUrl(Next)}
               onClick={nextMusic}
               variant='tiny'
             />

@@ -35,6 +35,12 @@ import {
 } from 'assets/sounds'
 import { SNKVideo, KurokoVideo, DBZVideo, HXHVideo } from 'assets/videos'
 
+const s3BucketURL = 'https://souhib-portfolio-assets.s3.amazonaws.com/'
+
+export const getImgUrl = (assetName: string) => {
+  return (s3BucketURL + 'img/' + assetName)
+}
+
 export interface Techno {
   frameworks: string[]
   bgColor: string
@@ -49,28 +55,28 @@ export const TechnicalStack: TechnicalStackInterface = {
   typescript: {
     frameworks: ['ReactJS', 'React Native', 'VueJS'],
     bgColor: '#3178c6',
-    icon: Typescript,
+    icon: getImgUrl(Typescript),
   },
   python: {
     frameworks: ['Django', 'Flask', 'SciKit-Learn'],
     bgColor: '#1E3264',
-    icon: Python,
+    icon: getImgUrl(Python),
   },
   integration: {
     frameworks: ['HTML5', 'CSS', 'SASS', 'LESS'],
     bgColor: '#f1662b',
-    icon: Integration,
+    icon: getImgUrl(Integration),
   },
   cloud: {
     frameworks: ['AWS', 'GCP'],
     bgColor: '#ffcb05',
-    icon: Cloud,
+    icon: getImgUrl(Cloud),
 
   },
   ruby: {
     frameworks: ['Liquid', 'Rails', 'Sidekiq'],
     bgColor: '#901212',
-    icon: Ruby,
+    icon: getImgUrl(Ruby),
   },
 }
 
@@ -116,7 +122,7 @@ export const experiences: ModalPropsType[] = [
     subtitle: 'Enedis',
     date: 'May - Jun 20',
     stack: 'CSS | JS | C++',
-    source: Enedis,
+    source: getImgUrl(Enedis),
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
   
@@ -143,7 +149,7 @@ export const experiences: ModalPropsType[] = [
     subtitle: 'Kookaï',
     stack: 'CSS | JS | C++',
     date: 'Jul - Sep 20',
-    source: Kookai,
+    source: getImgUrl(Kookai),
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
 
@@ -170,7 +176,7 @@ export const experiences: ModalPropsType[] = [
     stack: 'CSS | JS | C++',
     subtitle: 'Air France',
     date: 'Oct 20 - Jan 21',
-    source: AirFrance,
+    source: getImgUrl(AirFrance),
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
 
@@ -197,7 +203,7 @@ export const experiences: ModalPropsType[] = [
     stack: 'CSS | JS | C++',
     date: 'Feb 20 - May 21',
     subtitle: 'Cloudeasieer',
-    source: Cloudeasier,
+    source: getImgUrl(Cloudeasier),
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
 
@@ -234,7 +240,7 @@ export const schools = [
     ➤ Accompagner le développement et le financement de son activité.
     ➤ Analyser les cibles de croissance externe et répondre aux besoins de financement.
     ➤ Forward : Inspiré du business model Canvas (générer de la valeur),`,
-    source: Epitech,
+    source: getImgUrl(Epitech),
     location: 'Paris - France',
     date: '2013 - 2019',
     bgColor: '#122767'
@@ -255,7 +261,7 @@ export const schools = [
     ➤ .NET, Microsoft Developpers,
     ➤ Éthique en entreprise,
     ➤ Intelligence artificielle - Développement du projet Sara : Intelligence artificielle de traduction francophone`,
-    source: Ahlia,
+    source: getImgUrl(Ahlia),
     bgColor: '#930B23'
   }
 ]
@@ -263,26 +269,26 @@ export const schools = [
 export const Mangas = [
   {
     src: SNKVideo,
-    icon: Levi,
-    thumb: ErenThumb,
+    icon: getImgUrl(Levi),
+    thumb: getImgUrl(ErenThumb),
     title: 'Attack on Titans',
   },
   {
     src: KurokoVideo,
-    icon: Kuruko,
-    thumb: KurukoThumb,
+    icon: getImgUrl(Kuruko),
+    thumb: getImgUrl(KurukoThumb),
     title: 'Kuroko\'s Basket',
   },
   {
     src: DBZVideo,
-    icon: Goku,
-    thumb: GokuThumb,
+    icon: getImgUrl(Goku),
+    thumb: getImgUrl(GokuThumb),
     title: 'Dragon Ball Z',
   },
   {
     src: HXHVideo,
-    icon: GonThumb,
-    thumb: Gon,
+    icon: getImgUrl(GonThumb),
+    thumb: getImgUrl(Gon),
     title: 'Hunter x Hunter',
   }
 ]
@@ -290,22 +296,22 @@ export const Mangas = [
 export const VideoGames: VideoGameType[] = [
   {
     title: 'League of legends',
-    img: LeagueOfLegend,
+    img: getImgUrl(LeagueOfLegend),
     type: 'Favorite Game'
   },
   {
     title: 'Life Is Strange',
-    img: LifeIsStrange,
+    img: getImgUrl(LifeIsStrange),
     type: 'Best Story'
   },
   {
     title: 'Life Is Strange',
-    img: LifeIsStrange,
+    img: getImgUrl(LifeIsStrange),
     type: 'Best Story'
   },
   {
     title: 'Life Is Strange',
-    img: LifeIsStrange,
+    img: getImgUrl(LifeIsStrange),
     type: 'Best Story'
   },
 ]
@@ -331,27 +337,27 @@ export interface ModalPropsType {
 export const TVShowsData = [
   {
     name: 'Mr.Robot',
-    image: TVShowsImages.TheLastKingdom
+    image: getImgUrl('mr-robot.jpg')
   },
   {
     name: 'The Last Kingdom',
-    image: TVShowsImages.TheLastKingdom
+    image: getImgUrl('the-last-kingdom.jpg')
   },
   {
     name: 'La casa de papel',
-    image: TVShowsImages.LaCasaDePapel
+    image: getImgUrl('la-casa-de-papel.jpg')
   },
   {
     name: 'Mr.Robot',
-    image: TVShowsImages.TheLastKingdom
+    image: getImgUrl('mr-robot.jpg')
   },
   {
     name: 'The Last Kingdom',
-    image: TVShowsImages.LaCasaDePapel
+    image: getImgUrl('the-last-kingdom.jpg')
   },
   {
     name: 'La casa de papel',
-    image: TVShowsImages.LaCasaDePapel
+    image: getImgUrl('la-casa-de-papel.jpg')
   },
 ]
 
