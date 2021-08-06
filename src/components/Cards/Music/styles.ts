@@ -36,10 +36,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
       '& $logo': {
-        transition: '1.2s',
+        transition: '2s',
       },
       '&:hover $logo': {
-        transform: 'rotate(1080deg)',
+        transform: 'rotate(1440deg)',
         cursor: 'pointer'
       },
       '&:hover $nextAndPrevious': {

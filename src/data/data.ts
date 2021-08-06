@@ -35,10 +35,18 @@ import {
 } from 'assets/sounds'
 import { SNKVideo, KurokoVideo, DBZVideo, HXHVideo } from 'assets/videos'
 
-const s3BucketURL = 'https://souhib-portfolio-assets.s3.amazonaws.com/'
+const s3BucketURL = 'https://d2boeulkbylv6v.cloudfront.net/'
 
-export const getImgUrl = (assetName: string) => {
+export const getImgUrl = (assetName: string): string => {
   return (s3BucketURL + 'img/' + assetName)
+}
+
+export const getVideoUrl = (assetName: string): string => {
+  return (s3BucketURL + 'videos/' + assetName)
+}
+
+export const getSoundUrl = (assetName: string): string => {
+  return (s3BucketURL + 'sounds/' + assetName)
 }
 
 export interface Techno {
@@ -91,27 +99,27 @@ export const SongsInformations: PlaylistProps[] = [
   {
     title: 'Cleaning Out My Closet',
     artist: 'Eminem',
-    src: Eminem
+    src: getSoundUrl(Eminem)
   },
   {
     title: 'Freeze Rael',
     artist: 'Freeze Corleone',
-    src: FreezeRael
+    src: getSoundUrl(FreezeRael)
   },
   {
     title: 'Pride',
     artist: 'Kendrick Lamar',
-    src: Pride
+    src: getSoundUrl(Pride)
   },
   {
     title: 'Never Gonna Give You Up',
     artist: 'Rick Astley',
-    src: RickAstley
+    src: getSoundUrl(RickAstley)
   },
   {
     title: 'Grover Washington',
     artist: 'Just The Two of Us',
-    src: TwoOfUs
+    src: getSoundUrl(TwoOfUs)
   },
 ]
 
@@ -268,25 +276,25 @@ export const schools = [
 
 export const Mangas = [
   {
-    src: SNKVideo,
+    src: getVideoUrl(SNKVideo),
     icon: getImgUrl(Levi),
     thumb: getImgUrl(ErenThumb),
     title: 'Attack on Titans',
   },
   {
-    src: KurokoVideo,
+    src: getVideoUrl(KurokoVideo),
     icon: getImgUrl(Kuruko),
     thumb: getImgUrl(KurukoThumb),
     title: 'Kuroko\'s Basket',
   },
   {
-    src: DBZVideo,
+    src: getVideoUrl(DBZVideo),
     icon: getImgUrl(Goku),
     thumb: getImgUrl(GokuThumb),
     title: 'Dragon Ball Z',
   },
   {
-    src: HXHVideo,
+    src: getVideoUrl(HXHVideo),
     icon: getImgUrl(GonThumb),
     thumb: getImgUrl(Gon),
     title: 'Hunter x Hunter',

@@ -87,18 +87,16 @@ const TVShows: React.FunctionComponent = () => {
       >
         {TVShowsData.map((tvShow: TVShowInterface, index: number) =>  
           (
-            <>
-              <Box
-                className={classes.tvShow}
-                key={index}
-              >
-                <Logo
-                  className={classes.image}
-                  logo={tvShow.image}
-                  variant='huge'
-                />
-              </Box>
-            </>
+            <Box
+              className={classes.tvShow}
+              key={index}
+            >
+              <Logo
+                className={classes.image}
+                logo={tvShow.image}
+                variant='huge'
+              />
+            </Box>
           )    
         )}
       </Slider>
