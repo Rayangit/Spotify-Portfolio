@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 
 import { 
   Kookai, 
@@ -11,8 +13,43 @@ import {
   Typescript,
   VueJS,
   Epitech,
+  TVShows as TVShowsImages,
   Ahlia,
+  Kuruko,
+  KurukoThumb,
+  ErenThumb,
+  Goku,
+  GokuThumb,
+  Gon,
+  GonThumb,
+  LeagueOfLegend,
+  TheLastKingdom,
+  LaCasaDePapel,
+  MrRobot,
+  LifeIsStrange,
+  BreakingBad,
+  Got,
+  Brooklyn99
 } from 'assets/img'
+import { Saitama, Play, SNK, Levi } from 'assets/img'
+import {
+  Eminem,
+  FreezeRael,
+  Pride,
+  RickAstley,
+  TwoOfUs
+} from 'assets/sounds'
+import { SNKVideo, KurokoVideo, DBZVideo, HXHVideo } from 'assets/videos'
+
+const s3BucketURL = 'https://d2boeulkbylv6v.cloudfront.net/'
+
+export const getVideoUrl = (assetName: string): string => {
+  return (s3BucketURL + 'videos/' + assetName)
+}
+
+export const getSoundUrl = (assetName: string): string => {
+  return (s3BucketURL + 'sounds/' + assetName)
+}
 
 export interface Techno {
   frameworks: string[]
@@ -22,14 +59,6 @@ export interface Techno {
 
 export interface TechnicalStackInterface {
   [key: string]: Techno
-}
-
-export enum TechnicalStackKeys {
-  TYPESCRIPT = 1,
-  PYTHON = 2,
-  INTEGRATION = 3,
-  CLOUD = 4,
-  RUBY = 5,
 }
 
 export const TechnicalStack: TechnicalStackInterface = {
@@ -59,9 +88,42 @@ export const TechnicalStack: TechnicalStackInterface = {
     bgColor: '#901212',
     icon: Ruby,
   },
- 
 }
 
+export enum TechnicalStackKeys {
+  TYPESCRIPT = 1,
+  PYTHON = 2,
+  INTEGRATION = 3,
+  CLOUD = 4,
+  RUBY = 5,
+}
+export const SongsInformations: PlaylistProps[] = [
+  {
+    title: 'Cleaning Out My Closet',
+    artist: 'Eminem',
+    src: getSoundUrl(Eminem)
+  },
+  {
+    title: 'Freeze Rael',
+    artist: 'Freeze Corleone',
+    src: getSoundUrl(FreezeRael)
+  },
+  {
+    title: 'Pride',
+    artist: 'Kendrick Lamar',
+    src: getSoundUrl(Pride)
+  },
+  {
+    title: 'Never Gonna Give You Up',
+    artist: 'Rick Astley',
+    src: getSoundUrl(RickAstley)
+  },
+  {
+    title: 'Grover Washington',
+    artist: 'Just The Two of Us',
+    src: getSoundUrl(TwoOfUs)
+  },
+]
 
 export const experiences: ModalPropsType[] = [
   {
@@ -187,7 +249,7 @@ export const schools = [
     ➤ Diagnostiquer la situation actuelle de l’entreprise et anticiper les évolutions.
     ➤ Accompagner le développement et le financement de son activité.
     ➤ Analyser les cibles de croissance externe et répondre aux besoins de financement.
-    ➤ Forward : Inspiré du business model Canvas (générer de la valeur),`,
+    ➤ Forward : Inspiré du business model Canvas (générer de la valeur,`,
     source: Epitech,
     location: 'Paris - France',
     date: '2013 - 2019',
@@ -214,6 +276,62 @@ export const schools = [
   }
 ]
 
+export const Mangas = [
+  {
+    src: getVideoUrl(SNKVideo),
+    icon: Levi,
+    thumb: ErenThumb,
+    title: 'Attack on Titans',
+  },
+  {
+    src: getVideoUrl(KurokoVideo),
+    icon: Kuruko,
+    thumb: KurukoThumb,
+    title: 'Kuroko\'s Basket',
+  },
+  {
+    src: getVideoUrl(DBZVideo),
+    icon: Goku,
+    thumb: GokuThumb,
+    title: 'Dragon Ball Z',
+  },
+  {
+    src: getVideoUrl(HXHVideo),
+    icon: GonThumb,
+    thumb: Gon,
+    title: 'Hunter x Hunter',
+  }
+]
+
+export const VideoGames: VideoGameType[] = [
+  {
+    title: 'League of legends',
+    img: LeagueOfLegend,
+    type: 'Favorite Game'
+  },
+  {
+    title: 'Life Is Strange',
+    img: LifeIsStrange,
+    type: 'Best Story'
+  },
+  {
+    title: 'Life Is Strange',
+    img: LifeIsStrange,
+    type: 'Best Story'
+  },
+  {
+    title: 'Life Is Strange',
+    img: LifeIsStrange,
+    type: 'Best Story'
+  },
+]
+
+export interface VideoGameType {
+  title: string
+  img: string
+  type: string
+}
+
 export interface ModalPropsType {
   title: string
   stack?: string
@@ -224,4 +342,41 @@ export interface ModalPropsType {
   source: string
   location: string
   description: string
+}
+
+export const TVShowsData = [
+  {
+    name: 'Mr.Robot',
+    image: MrRobot
+  },
+  {
+    name: 'The Last Kingdom',
+    image: TheLastKingdom
+  },
+  {
+    name: 'La casa de papel',
+    image: LaCasaDePapel
+  },
+  {
+    name: 'Breaking Bad',
+    image: BreakingBad
+  },
+  {
+    name: 'Game of thrones',
+    image: Got
+  },
+  {
+    name: 'Brooklyn Nine Nine',
+    image: Brooklyn99
+  },
+]
+
+export interface TVShowInterface {
+  name: string
+  image: string
+}
+export interface PlaylistProps {
+  title: string
+  artist: string
+  src: string
 }

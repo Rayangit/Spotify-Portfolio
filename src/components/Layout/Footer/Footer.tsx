@@ -11,6 +11,7 @@ import Clickable from 'components/Containers/Clickable/Clickable'
 import Stack from 'components/Containers/Stack/Stack'
 import Avatar from 'components/Images/Avatar/Avatar'
 import Subtitle from 'components/Text/Subtitle/Subtitle'
+
 const data = {
   socials: {
     mail: 'mailto:souhib.trabelsi@epitech.eu',
@@ -33,9 +34,9 @@ const Footer: React.FunctionComponent = () => {
         spacing={2}
       >
         <Stack
+          horizontalAlign='center'
           isRow
           verticalAlign='center'
-          horizontalAlign='center'
         >
           <Clickable onClick={goToLinkedin}>
             <Avatar

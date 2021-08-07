@@ -5,6 +5,7 @@ export interface TitleProps {
   children: React.ReactNode
   variant: 'huge' | 'big' | 'medium' | 'small'
   textAlign?: 'left' | 'center' | 'right'
+  className?: string | undefined
 }
 
 export interface SubtitleProps {

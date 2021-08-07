@@ -1,3 +1,6 @@
+import { Howl } from 'howler'
+
+
 export type ExperienceProps = {
   company: string
   date: string
@@ -23,4 +26,8 @@ export interface EducationProps {
   location: string
   onClick(): void
   date: string
+}
+
+export interface SongsInterface {
+  [title: string]: Howl;
 }

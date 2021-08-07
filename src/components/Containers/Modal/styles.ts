@@ -7,7 +7,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
- 
+      [theme.breakpoints.down('xs')]: {
+        overflow: 'scroll',
+      }
     },
     modalContainer: {
       position: 'absolute',
@@ -15,9 +17,6 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '90%',
       margin: 'auto',
       display: 'flex',
-      animationDuration: '0.8s',
-      animationFillMode: 'forwards',
-      animationTimingFunction: 'ease-in-out',
       justifyContent: 'center',
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
@@ -36,6 +35,11 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: 32,
         width: '80%',
       },
+      [theme.breakpoints.down('xs')]: {
+        position: 'relative',
+        width: '90%',
+        padding: '40px 20px',
+      }
     },
     bottomBar: {
       [theme.breakpoints.down('sm')]: {
@@ -113,7 +117,13 @@ const useStyles = makeStyles((theme: Theme) =>
         animation: '$shadowFadeIn 0.5s forwards',
         'webkit-animation': '$shadowFadeIn 0.8s forwards',
         overflow: 'scroll',
-      }
+      },
+      [theme.breakpoints.down('xs')]: {
+        maxHeight: 'unset',
+        animation: 'none',
+        'webkit-animation': 'none',
+        overflow: 'auto',
+      },
     },
      
     '@keyframes shadowFadeIn': {

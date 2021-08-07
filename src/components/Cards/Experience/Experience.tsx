@@ -31,11 +31,11 @@ const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({
 
   return (
     <div
+      className={classes.experienceCard}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={classes.experienceCard}
-      style={containerStyle}
       ref={ref}
+      style={containerStyle}
     >
       <Stack
         spacing={2}
@@ -43,14 +43,14 @@ const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({
         verticalAlign='center'
       >
         <Logo
-          logo={logo}
           horizontalAlign='left'
+          logo={logo}
           variant='tiny'
         />
         <Stack
           horizontalAlign='left'
-          verticalAlign='center'
           spacing={1}
+          verticalAlign='center'
         >
           <Title variant='small'>{job}</Title>
           <Title
@@ -68,8 +68,8 @@ const Experience = forwardRef<HTMLDivElement, ExperienceProps>(({
 
               <Subtitle              
                 animation='slideIn'
-                animationExit='slideOut'
                 animationDelay='0.3s'
+                animationExit='slideOut'
                 isHovering={isHovered}
                 variant='tiny'
               >{stack}</Subtitle>

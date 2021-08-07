@@ -17,16 +17,16 @@ const Education = forwardRef<HTMLDivElement, EducationProps>(({ diplomaName, log
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   return (
     <div
-      ref={ref}
       className={classes['education-card']}
       onClick={onClick}
+      ref={ref}
       style={{
         border: `2px solid ${bgColor}`,
       }}
     >
       <Box
-        className={classes.overlay}
         bgcolor={bgColor}
+        className={classes.overlay}
       />
       <Box
         mb={2}

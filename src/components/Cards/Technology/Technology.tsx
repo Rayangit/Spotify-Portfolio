@@ -38,8 +38,8 @@ const Technologie: React.FunctionComponent<TechnologieProps> = ({
       </Box>
       <ul>
         <Stack
-          spacing={1}
           horizontalAlign='left'
+          spacing={1}
         >
           {companies && companies.map((company, index) => {
             return (
@@ -48,9 +48,9 @@ const Technologie: React.FunctionComponent<TechnologieProps> = ({
                 style={{ paddingLeft: 16 }}
               >
                 <Stack
+                  horizontalAlign='left'
                   isRow
                   spacing={1}
-                  horizontalAlign='left'
                 >
                   <Subtitle variant={isMobile ? 'tiny' : 'medium'}>●</Subtitle>
                   <Subtitle variant={isMobile ? 'tiny' : 'medium'}>{company}</Subtitle>

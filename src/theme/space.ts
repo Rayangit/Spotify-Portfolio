@@ -1,4 +1,4 @@
-const getSpace = (space: number) => {
+const getSpace = (space: number): number => {
   return space * 8
 }
 

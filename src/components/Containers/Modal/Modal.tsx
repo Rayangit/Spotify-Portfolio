@@ -40,28 +40,21 @@ const Modal: React.FunctionComponent<ModalProps> = ({
     }
   }, [open])
   const closeModal = () => {
-    if (modalContainerRef.current) 
-      modalContainerRef.current.style.animationName = isMobile || isExperience ? 'bounceOut' : `backOut${popFrom}`
-    setTimeout(() => {
-      onClose()
-      setIsOpen(false)
-    }, 500)
+    onClose()
+    setIsOpen(false)
   }
   return (
     <div>
       <ModalMUI
-        open={isOpen}
-        aria-labelledby='server-modal-title'
         aria-describedby='server-modal-description'
-        container={() => modalContainerRef.current}
+        aria-labelledby='server-modal-title'
         className={classes.modal}
+        container={() => modalContainerRef.current}
+        open={isOpen}
       >
         <div
-          ref={modalContainerRef}
           className={classes.modalContainer}
-          style={{
-            animationName: isMobile || isExperience ? 'bounceIn' : `backIn${popFrom}`
-          }}
+          ref={modalContainerRef}
         >
           <Box
             className={classes.overlay}
@@ -75,8 +68,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           >
             <Stack
               horizontalAlign='center'
-              verticalAlign='center'
               spacing={isMobile ? 3 : 4}
+              verticalAlign='center'
             >
               <Title
                 textAlign={isMobile ? 'center' : 'left'}
@@ -95,13 +88,13 @@ const Modal: React.FunctionComponent<ModalProps> = ({
               </Box>
             </Box>
             <Stack
-              isRow={!isMobile}
               className={classes.bottomBar}
+              isRow={!isMobile}
               verticalAlign='center'
             >
               <Stack
-                horizontalAlign='center'
                 className={classes.modalBottomItem}
+                horizontalAlign='center'
                 verticalAlign='center'
               >
                 <Subtitle

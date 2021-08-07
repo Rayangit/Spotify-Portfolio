@@ -12,16 +12,22 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'assets/img'
+import { Spotify, Saitama } from 'assets/img'
+import TVShows from 'components/Cards/About/TVShows/TVShows'
 import Education from 'components/Cards/Education/Education'
 import Experience from 'components/Cards/Experience/Experience'
+import Manga from 'components/Cards/Manga/Manga'
+import Music from 'components/Cards/Music/Music'
 import Technology from 'components/Cards/Technology/Technology'
+import VideoGame from 'components/Cards/VideoGame/VideoGame'
 import Clickable from 'components/Containers/Clickable/Clickable'
 import Modal from 'components/Containers/Modal/Modal'
 import Stack from 'components/Containers/Stack/Stack'
 import Footer from 'components/Layout/Footer/Footer'
 import Header from 'components/Layout/Header/Header'
+import Player from 'components/Player/Player'
 import Title from 'components/Text/Title/Title'
-import { schools, experiences, TechnicalStack, TechnicalStackKeys, ModalPropsType } from 'data/data'
+import { schools, experiences, TechnicalStack, TechnicalStackKeys, ModalPropsType, VideoGames } from 'data/data'
 
 const Main: React.FunctionComponent = () => {
 
@@ -144,12 +150,48 @@ const Main: React.FunctionComponent = () => {
     dots: false,
     draggable: false,
     onSwipe: swipe,
-    infinite: false,
+    infinite: true,
     variableWidth: true,
     swipeToSlide: true,
     swipe: true,
     lazyload: false,
     speed: 300,
+  }
+  const aboutSliderProps = {
+    dots: false,
+    draggable: false,
+    onSwipe: swipe,
+    infinite: true,
+    variableWidth: true,
+    swipeToSlide: true,
+    swipe: true,
+    lazyload: false,
+    speed: 300,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 0,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+    ]
   }
   const [modalData, setModalData] = useState<ModalPropsType | undefined>(undefined)
   const [filter, setFilter] = useState<TechnicalStackKeys | undefined>(undefined)
@@ -188,9 +230,7 @@ const Main: React.FunctionComponent = () => {
     if (cardRef) 
       cardRef.style.animationName = 'bounceOut'
     experienceCardIndex.current = index
-    setTimeout(() => {
-      setModalData(data)
-    }, 500)
+    setModalData(data)
   }
   const openEducationModal = (index: number, data?: ModalPropsType) => {
     if (index === 0) {
@@ -203,10 +243,7 @@ const Main: React.FunctionComponent = () => {
         rightRef.current.style.animationName = isMobile ? 'bounceOut' : 'backOutRight'
       setIsLeftCard(false)
     }
-    // setModalAnimation('bounceIn')
-    setTimeout(() => {
-      setModalData(data)
-    }, 500)
+    setModalData(data)
   }
   useEffect(() => {
     filter 
@@ -245,13 +282,12 @@ const Main: React.FunctionComponent = () => {
                 onClick={openExperienceModal(index, experience)}
               >
                 <Experience
-                  ref={experienceCardRef[index]}
-                  isAnimated={!!modalData?.mainTechno}
                   bgColor={experience.bgColor}
-                  date={experience.date}
                   company={experience.subtitle}
-                  logo={experience.source}
+                  date={experience.date}
                   job={experience.title}
+                  logo={experience.source}
+                  ref={experienceCardRef[index]}
                   stack={experience.stack}
                 />
               </Clickable>
@@ -276,10 +312,10 @@ const Main: React.FunctionComponent = () => {
               >
                 <Technology
                   active={index + 1 === filter}
-                  logo={icon}
-                  language={key}
-                  companies={frameworks}
                   bgColor={bgColor}
+                  companies={frameworks}
+                  language={key}
+                  logo={icon}
                 />
               </Clickable>
             )
@@ -299,32 +335,32 @@ const Main: React.FunctionComponent = () => {
           >
             {schools.map((school: ModalPropsType , index: number) => (
               <Education
-                ref={index === 0 ? leftRef : rightRef}
-                logo={school.source}
-                diplomaName={school.title}
-                onClick={() => openEducationModal(index, school)}
-                key={index}
                 bgColor={school.bgColor}
-                location={school.location}
                 date={school.date}
+                diplomaName={school.title}
+                key={index}
+                location={school.location}
+                logo={school.source}
+                onClick={() => openEducationModal(index, school)}
+                ref={index === 0 ? leftRef : rightRef}
               />
             ))}
           </Slider> ) : (
           <Stack
-            isRow
             className={classes.educationStack}
+            isRow
             spacing={2}
           >
             {schools.map((school: ModalPropsType , index: number) => (
               <Education
-                ref={index === 0 ? leftRef : rightRef}
-                logo={school.source}
+                bgColor={school.bgColor}
+                date={school.date}
                 diplomaName={school.title}
                 key={index}
-                onClick={() => openEducationModal(index, school)}
-                bgColor={school.bgColor}
                 location={school.location}
-                date={school.date}
+                logo={school.source}
+                onClick={() => openEducationModal(index, school)}
+                ref={index === 0 ? leftRef : rightRef}
               />
             ))}
           </Stack>
@@ -333,23 +369,48 @@ const Main: React.FunctionComponent = () => {
 
       <Stack>
         <Modal
-          open={!!modalData}
-          title={modalData?.title}
-          subtitle={modalData?.subtitle}
-          onClose={closeModal}
-          location={modalData?.location}
-          isExperience={!!modalData?.mainTechno}
-          popFrom={isLeftCard ? 'Left' : 'Right'}
-          date={modalData?.date}
           color={modalData?.bgColor}
+          date={modalData?.date}
           image={modalData?.source}
+          isExperience={!!modalData?.mainTechno}
+          location={modalData?.location}
+          onClose={closeModal}
+          open={!!modalData}
+          popFrom={isLeftCard ? 'Left' : 'Right'}
+          subtitle={modalData?.subtitle}
           text={modalData?.description}
+          title={modalData?.title}
         />
       </Stack>
       <Box
         mt={5}
         pb={5}
       >
+        <Box
+          mb={5}          
+        >
+
+          <Box mb={2}>
+            <Title variant='medium'>About</Title>
+          </Box>
+          <Slider
+            className={classes.slick}
+            {
+              ...{...sliderProps, infinite: false}
+            }
+          >
+            <Music
+              bgColor='#1ED760'
+              company=''
+              date=''
+              job=''
+              logo={Spotify}
+            />
+            <Manga />
+            <VideoGame />
+            <TVShows />
+          </Slider>
+        </Box>
         <Footer />
       </Box>
     </Box>

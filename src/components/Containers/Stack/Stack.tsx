@@ -39,11 +39,11 @@ const Stack: React.FunctionComponent<ContainerProps> = ({
     })
   return (
     <Box
+      alignItems={isRow ? vertical : horizontal}
       bgcolor={bgColor}
       className={className}
       display='flex'
       flexDirection={isRow ? 'row' : 'column'}
-      alignItems={isRow ? vertical : horizontal}
       justifyContent={isRow ? horizontal : vertical}
       style={style}
     >
