@@ -23,7 +23,13 @@ import {
   Gon,
   GonThumb,
   LeagueOfLegend,
-  LifeIsStrange
+  TheLastKingdom,
+  LaCasaDePapel,
+  MrRobot,
+  LifeIsStrange,
+  BreakingBad,
+  Got,
+  Brooklyn99
 } from 'assets/img'
 import { Saitama, Play, SNK, Levi } from 'assets/img'
 import {
@@ -36,10 +42,6 @@ import {
 import { SNKVideo, KurokoVideo, DBZVideo, HXHVideo } from 'assets/videos'
 
 const s3BucketURL = 'https://d2boeulkbylv6v.cloudfront.net/'
-
-export const getImgUrl = (assetName: string): string => {
-  return (s3BucketURL + 'img/' + assetName)
-}
 
 export const getVideoUrl = (assetName: string): string => {
   return (s3BucketURL + 'videos/' + assetName)
@@ -63,28 +65,28 @@ export const TechnicalStack: TechnicalStackInterface = {
   typescript: {
     frameworks: ['ReactJS', 'React Native', 'VueJS'],
     bgColor: '#3178c6',
-    icon: getImgUrl(Typescript),
+    icon: Typescript,
   },
   python: {
     frameworks: ['Django', 'Flask', 'SciKit-Learn'],
     bgColor: '#1E3264',
-    icon: getImgUrl(Python),
+    icon: Python,
   },
   integration: {
     frameworks: ['HTML5', 'CSS', 'SASS', 'LESS'],
     bgColor: '#f1662b',
-    icon: getImgUrl(Integration),
+    icon: Integration,
   },
   cloud: {
     frameworks: ['AWS', 'GCP'],
     bgColor: '#ffcb05',
-    icon: getImgUrl(Cloud),
+    icon: Cloud,
 
   },
   ruby: {
     frameworks: ['Liquid', 'Rails', 'Sidekiq'],
     bgColor: '#901212',
-    icon: getImgUrl(Ruby),
+    icon: Ruby,
   },
 }
 
@@ -130,7 +132,7 @@ export const experiences: ModalPropsType[] = [
     subtitle: 'Enedis',
     date: 'May - Jun 20',
     stack: 'CSS | JS | C++',
-    source: getImgUrl(Enedis),
+    source: Enedis,
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
   
@@ -157,7 +159,7 @@ export const experiences: ModalPropsType[] = [
     subtitle: 'Kookaï',
     stack: 'CSS | JS | C++',
     date: 'Jul - Sep 20',
-    source: getImgUrl(Kookai),
+    source: Kookai,
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
 
@@ -184,7 +186,7 @@ export const experiences: ModalPropsType[] = [
     stack: 'CSS | JS | C++',
     subtitle: 'Air France',
     date: 'Oct 20 - Jan 21',
-    source: getImgUrl(AirFrance),
+    source: AirFrance,
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
 
@@ -211,7 +213,7 @@ export const experiences: ModalPropsType[] = [
     stack: 'CSS | JS | C++',
     date: 'Feb 20 - May 21',
     subtitle: 'Cloudeasieer',
-    source: getImgUrl(Cloudeasier),
+    source: Cloudeasier,
     location: 'Paris - France',
     description: `⇨ 𝑴𝑨 𝑴𝑰𝑺𝑺𝑰𝑶𝑵 : Modifier et ajouter des données sur un outil de monitoring constitué d'une carte et de plusieurs graphiques répertoriant toutes les données liées aux coupures électriques en France.
 
@@ -247,8 +249,8 @@ export const schools = [
     ➤ Diagnostiquer la situation actuelle de l’entreprise et anticiper les évolutions.
     ➤ Accompagner le développement et le financement de son activité.
     ➤ Analyser les cibles de croissance externe et répondre aux besoins de financement.
-    ➤ Forward : Inspiré du business model Canvas (générer de la valeur),`,
-    source: getImgUrl(Epitech),
+    ➤ Forward : Inspiré du business model Canvas (générer de la valeur,`,
+    source: Epitech,
     location: 'Paris - France',
     date: '2013 - 2019',
     bgColor: '#122767'
@@ -269,7 +271,7 @@ export const schools = [
     ➤ .NET, Microsoft Developpers,
     ➤ Éthique en entreprise,
     ➤ Intelligence artificielle - Développement du projet Sara : Intelligence artificielle de traduction francophone`,
-    source: getImgUrl(Ahlia),
+    source: Ahlia,
     bgColor: '#930B23'
   }
 ]
@@ -277,26 +279,26 @@ export const schools = [
 export const Mangas = [
   {
     src: getVideoUrl(SNKVideo),
-    icon: getImgUrl(Levi),
-    thumb: getImgUrl(ErenThumb),
+    icon: Levi,
+    thumb: ErenThumb,
     title: 'Attack on Titans',
   },
   {
     src: getVideoUrl(KurokoVideo),
-    icon: getImgUrl(Kuruko),
-    thumb: getImgUrl(KurukoThumb),
+    icon: Kuruko,
+    thumb: KurukoThumb,
     title: 'Kuroko\'s Basket',
   },
   {
     src: getVideoUrl(DBZVideo),
-    icon: getImgUrl(Goku),
-    thumb: getImgUrl(GokuThumb),
+    icon: Goku,
+    thumb: GokuThumb,
     title: 'Dragon Ball Z',
   },
   {
     src: getVideoUrl(HXHVideo),
-    icon: getImgUrl(GonThumb),
-    thumb: getImgUrl(Gon),
+    icon: GonThumb,
+    thumb: Gon,
     title: 'Hunter x Hunter',
   }
 ]
@@ -304,22 +306,22 @@ export const Mangas = [
 export const VideoGames: VideoGameType[] = [
   {
     title: 'League of legends',
-    img: getImgUrl(LeagueOfLegend),
+    img: LeagueOfLegend,
     type: 'Favorite Game'
   },
   {
     title: 'Life Is Strange',
-    img: getImgUrl(LifeIsStrange),
+    img: LifeIsStrange,
     type: 'Best Story'
   },
   {
     title: 'Life Is Strange',
-    img: getImgUrl(LifeIsStrange),
+    img: LifeIsStrange,
     type: 'Best Story'
   },
   {
     title: 'Life Is Strange',
-    img: getImgUrl(LifeIsStrange),
+    img: LifeIsStrange,
     type: 'Best Story'
   },
 ]
@@ -345,27 +347,27 @@ export interface ModalPropsType {
 export const TVShowsData = [
   {
     name: 'Mr.Robot',
-    image: getImgUrl('mr-robot.jpg')
+    image: MrRobot
   },
   {
     name: 'The Last Kingdom',
-    image: getImgUrl('the-last-kingdom.jpg')
+    image: TheLastKingdom
   },
   {
     name: 'La casa de papel',
-    image: getImgUrl('la-casa-de-papel.jpg')
+    image: LaCasaDePapel
   },
   {
-    name: 'Mr.Robot',
-    image: getImgUrl('mr-robot.jpg')
+    name: 'Breaking Bad',
+    image: BreakingBad
   },
   {
-    name: 'The Last Kingdom',
-    image: getImgUrl('the-last-kingdom.jpg')
+    name: 'Game of thrones',
+    image: Got
   },
   {
-    name: 'La casa de papel',
-    image: getImgUrl('la-casa-de-papel.jpg')
+    name: 'Brooklyn Nine Nine',
+    image: Brooklyn99
   },
 ]
 

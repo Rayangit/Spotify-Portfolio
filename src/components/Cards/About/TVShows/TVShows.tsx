@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { Box } from '@material-ui/core'
 import Slider from 'react-slick'
@@ -7,14 +7,14 @@ import { TVShowLogo } from 'assets/img'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
 import Title from 'components/Text/Title/Title'
-import { getImgUrl, TVShowInterface, TVShowsData } from 'data/data'
+import { TVShowInterface, TVShowsData } from 'data/data'
 
 import useStyles from './styles'
 
 const TVShows: React.FunctionComponent = () => {
   const classes = useStyles()
   const sliderRef = useRef<Slider>(null)
-  const isPaused = useRef(false)
+  const [isPaused, setisPaused] = useState(true)
   const sliderProps = {
     dots: false,
     arrows: false,
@@ -25,22 +25,32 @@ const TVShows: React.FunctionComponent = () => {
     autoplay: false,
     swipe: false,
     pauseOnHover: false,
-    slidesToShow: 2,
-    autoplaySpeed: 300,
+    autoplaySpeed: 500,
     lazyload: false,
-    speed: 1200,
+    speed: 1800,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        },
+      },
+      {
+        breakpoint: 0,
+        settings: {
+          slidesToShow: 1
+        },
+      }
+    ],
   }
   const waitForHoverAndPlay = () => {
-    setTimeout(() => {
-      playSlider()
-    }, 1500)
+    setTimeout(() => {      
+      sliderRef?.current?.slickPlay()
+    }, 900)
   }
 
   const stopSlider = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPause()
-      sliderRef.current.slickGoTo(0)
-    }
+    sliderRef.current?.slickPause()
   }
 
   const playSlider = () => {
@@ -49,17 +59,14 @@ const TVShows: React.FunctionComponent = () => {
     }
   }
 
-
   const toggleSlider = () => {
     if (sliderRef.current) {
-      if (!isPaused?.current)
+      if (!isPaused)
         sliderRef.current.slickPause()
       else
         sliderRef.current.slickPlay()
-      isPaused.current = !isPaused.current
+      setisPaused(!isPaused)
     }
-    return isPaused.current
-
   }
   return (
     <Box
@@ -76,7 +83,7 @@ const TVShows: React.FunctionComponent = () => {
       >
         <Title variant='huge'>TV Shows</Title>
         <Logo
-          logo={getImgUrl(TVShowLogo)}
+          logo={TVShowLogo}
           variant='medium'
         />
       </Stack>

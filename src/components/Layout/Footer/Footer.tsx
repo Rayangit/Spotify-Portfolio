@@ -11,7 +11,7 @@ import Clickable from 'components/Containers/Clickable/Clickable'
 import Stack from 'components/Containers/Stack/Stack'
 import Avatar from 'components/Images/Avatar/Avatar'
 import Subtitle from 'components/Text/Subtitle/Subtitle'
-import { getImgUrl } from 'data/data'
+
 const data = {
   socials: {
     mail: 'mailto:souhib.trabelsi@epitech.eu',
@@ -42,7 +42,7 @@ const Footer: React.FunctionComponent = () => {
             <Avatar
               isAnimated
               isBordered
-              source={getImgUrl(Linkedin)}
+              source={Linkedin}
               variant='small'
             />
           </Clickable>
@@ -50,7 +50,7 @@ const Footer: React.FunctionComponent = () => {
             <Clickable onClick={mailTo}>
               <Avatar
                 isBordered
-                source={getImgUrl(Contact)}
+                source={Contact}
                 variant='big'
               />
             </Clickable>
@@ -59,7 +59,7 @@ const Footer: React.FunctionComponent = () => {
             <Avatar
               isAnimated
               isBordered
-              source={getImgUrl(Github)}
+              source={Github}
               variant='small'
             />
           </Clickable>

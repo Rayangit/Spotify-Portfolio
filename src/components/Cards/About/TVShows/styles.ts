@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'relative',
       overflow: 'hidden',
       borderRadius: 16,
-      transition: '0.5s',
-      animationDuration: '0.5s',
+      transition: '0.3s',
+      animationDuration: '0.3s',
       animationFillMode: 'forwards',
       animationTimingFunction: 'ease-in-out',
       '&:hover $image': {
@@ -33,23 +33,29 @@ const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         border: '2px solid #FFFFFF',
         cursor: 'pointer',
-        padding: 2,
         background: 'transparent',
-        transition: '0.5s',
+        transition: '0.3s',
       },
       '&:hover .slick-slider': {
-        padding: 2
       },
       [theme.breakpoints.down('sm')]: {
         width: '180px !important',
-        height: '120px !important'
+        height: '120px !important',
+        padding: 24,
+        position: 'relative',
+        '& .slick-slider, .slick-slider': {
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0
+        },
       },
     },
     neutralState: {
       display: 'flex',
       flexDirection: 'column',
-      animationDelay: '0.5s',
-      animationDuration: '0.5s',
+      animationDelay: '0.3s',
+      animationDuration: '0.3s',
       animationFillMode: 'forwards',
       animationTimingFunction: 'ease-in-out',
       alignItems: 'center',
@@ -62,8 +68,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     image: {
       opacity: 0,
-      animationDelay: '1s',
-      animationDuration: '0.5s',
+      animationDelay: '.6s',
+      animationDuration: '0.3s',
       animationFillMode: 'forwards',
       animationTimingFunction: 'ease-in-out',
       '& img':{

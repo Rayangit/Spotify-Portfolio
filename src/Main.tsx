@@ -157,6 +157,42 @@ const Main: React.FunctionComponent = () => {
     lazyload: false,
     speed: 300,
   }
+  const aboutSliderProps = {
+    dots: false,
+    draggable: false,
+    onSwipe: swipe,
+    infinite: true,
+    variableWidth: true,
+    swipeToSlide: true,
+    swipe: true,
+    lazyload: false,
+    speed: 300,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 0,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+    ]
+  }
   const [modalData, setModalData] = useState<ModalPropsType | undefined>(undefined)
   const [filter, setFilter] = useState<TechnicalStackKeys | undefined>(undefined)
   const [filteredExperiences, setFilteredExperiences] = useState<ModalPropsType[]>(experiences)
@@ -350,7 +386,13 @@ const Main: React.FunctionComponent = () => {
         mt={5}
         pb={5}
       >
-        <div>
+        <Box
+          mb={5}          
+        >
+
+          <Box mb={2}>
+            <Title variant='medium'>About</Title>
+          </Box>
           <Slider
             className={classes.slick}
             {
@@ -365,10 +407,10 @@ const Main: React.FunctionComponent = () => {
               logo={Spotify}
             />
             <Manga />
-            <TVShows />
             <VideoGame />
+            <TVShows />
           </Slider>
-        </div>
+        </Box>
         <Footer />
       </Box>
     </Box>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 
-import { Box, useMediaQuery, useTheme } from '@material-ui/core'
-import { Howl, Howler } from 'howler'
+import { Box } from '@material-ui/core'
+import { Howl } from 'howler'
 
 import { Spotify } from 'assets/img'
 import { Pause, Play, Previous, Next } from 'assets/img'
@@ -9,25 +9,16 @@ import { ExperienceProps } from 'components/Cards/interfaces'
 import { SongsInterface } from 'components/Cards/interfaces'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
-import Player from 'components/Player/Player'
-import Subtitle from 'components/Text/Subtitle/Subtitle'
 import Title from 'components/Text/Title/Title'
-import { SongsInformations, PlaylistProps, getImgUrl } from 'data/data'
+import { SongsInformations, PlaylistProps } from 'data/data'
 
 import useStyles from './styles'
 
 const Music: React.FunctionComponent<ExperienceProps> = ({
-  company,
-  date,
   bgColor,
-  stack,
-  job,
-  logo,
 }: ExperienceProps) => {
   const classes = useStyles()
-  const theme = useTheme()
   const [ isHovered, setIsHovered ] = useState(false)
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [ logoToDisplay, setLogoToDisplay ] = useState(Spotify)
 
 
@@ -194,21 +185,21 @@ const Music: React.FunctionComponent<ExperienceProps> = ({
             <Logo
               className={classes.nextAndPrevious}
               horizontalAlign='center'
-              logo={getImgUrl(Previous)}
+              logo={Previous}
               onClick={previousMusic}
               variant='tiny'
             />
             <Logo
               className={classes.logo}
               horizontalAlign='center'
-              logo={getImgUrl(logoToDisplay)}
+              logo={logoToDisplay}
               onClick={playAndPauseMusic}
               variant='medium'
             />
             <Logo
               className={classes.nextAndPrevious}
               horizontalAlign='center'
-              logo={getImgUrl(Next)}
+              logo={Next}
               onClick={nextMusic}
               variant='tiny'
             />

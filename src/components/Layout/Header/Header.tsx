@@ -14,7 +14,6 @@ import Stack from 'components/Containers/Stack/Stack'
 import Avatar from 'components/Images/Avatar/Avatar'
 import Subtitle from 'components/Text/Subtitle/Subtitle'
 import Title from 'components/Text/Title/Title'
-import { getImgUrl } from 'data/data'
 
 const data = {
   socials: {
@@ -46,8 +45,8 @@ const Header: React.FunctionComponent = () => {
       >
         <Avatar
           isBordered={false}
+          source={ProfilePicture}
           variant='huge'
-          source={getImgUrl(ProfilePicture)}
         />
         <Stack spacing={2}>
           <Title
@@ -76,14 +75,14 @@ const Header: React.FunctionComponent = () => {
             <Avatar
               isAnimated
               isBordered
-              source={getImgUrl(Linkedin)}
+              source={Linkedin}
               variant='small'
             />
           </Clickable>
           <Clickable onClick={mailTo}>
             <Avatar
               isBordered
-              source={getImgUrl(Contact)}
+              source={Contact}
               variant='big'
             />
           </Clickable>
@@ -91,7 +90,7 @@ const Header: React.FunctionComponent = () => {
             <Avatar
               isAnimated
               isBordered
-              source={getImgUrl(Github)}
+              source={Github}
               variant='small'
             />
           </Clickable>

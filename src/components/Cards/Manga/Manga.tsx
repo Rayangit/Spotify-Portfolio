@@ -6,7 +6,7 @@ import { Replay, SoundOff, SoundOn } from 'assets/img'
 import Stack from 'components/Containers/Stack/Stack'
 import Logo from 'components/Images/Logo/Logo'
 import Title from 'components/Text/Title/Title'
-import { getImgUrl, Mangas } from 'data/data'
+import { Mangas } from 'data/data'
 
 import useStyles from './styles'
 
@@ -140,7 +140,7 @@ const Manga: React.FunctionComponent = () => {
         { isHovered && 
           <Logo
             className={`${classes.logoMute} ${displayInformation && classes.spinner}`}
-            logo={getImgUrl(bottomButton.logo)}
+            logo={bottomButton.logo}
             onClick={bottomButton.onClick}
             variant='tiny'
           />}

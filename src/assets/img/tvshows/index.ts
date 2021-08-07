@@ -1,15 +1,17 @@
-// import LaCasaDePapel from './la-casa-de-papel.jpg'
-// import MrRobot from './mr-robot.jpg'
-// import TheLastKingdom from './the-last-kingdom.jpg'
+const s3BucketURL = 'https://d2boeulkbylv6v.cloudfront.net/img/'
 
-const LaCasaDePapel = 'la-casa-de-papel.jpg'
-const MrRobot = 'mr-robot.jpg'
-const TheLastKingdom = 'the-last-kingdom.jpg'
+const LaCasaDePapel = s3BucketURL + 'la-casa-de-papel.jpg'
+const MrRobot = s3BucketURL + 'mr-robot.jpg'
+import BreakingBad from './breakingBad.jpg'
+import Brooklyn99 from './brooklyn99.jpg'
+import Got from './got.jpg'
+const TheLastKingdom =  s3BucketURL + 'the-last-kingdom.jpg'
 
-const TVShows = {
+export {
   LaCasaDePapel,
   MrRobot,
-  TheLastKingdom
+  TheLastKingdom,
+  BreakingBad,
+  Brooklyn99,
+  Got
 }
-
-export default TVShows

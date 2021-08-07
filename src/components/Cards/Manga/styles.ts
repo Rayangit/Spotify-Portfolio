@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 160,
       padding: 24,
       position: 'relative',
+      borderRadius: 16,
       transition: '0.8s',
       '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0)'
