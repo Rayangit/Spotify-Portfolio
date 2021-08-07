@@ -37,6 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.down('xs')]: {
         position: 'relative',
+        width: '90%',
+        padding: '40px 20px',
       }
     },
     bottomBar: {
